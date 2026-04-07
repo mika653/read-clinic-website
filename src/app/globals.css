@@ -1,26 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Cormorant:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Bodoni+Moda:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --read-yellow: #E8B731;
+  --read-blue: #2E7AB8;
+  --read-pink: #E84671;
+  --read-teal: #2BAA8E;
+  --read-cream: #FFF9F0;
+  --read-dark: #1A1A2E;
+  --read-warm-gray: #F5F0EB;
+  --read-gold: #C9A84C;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-cormorant: 'Cormorant', serif;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-bodoni: 'Bodoni Moda', serif;
+  --font-jost: 'Jost', sans-serif;
+  --color-read-yellow: #E8B731;
+  --color-read-blue: #2E7AB8;
+  --color-read-pink: #E84671;
+  --color-read-teal: #2BAA8E;
+  --color-read-cream: #FFF9F0;
+  --color-read-dark: #1A1A2E;
+  --color-read-warm-gray: #F5F0EB;
+  --color-read-gold: #C9A84C;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Device frame styles */
+.device-frame {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.device-frame-mobile {
+  width: 375px;
+  height: 812px;
+}
+
+.device-frame-tablet {
+  width: 768px;
+  height: 1024px;
+}
+
+.device-frame-desktop {
+  width: 1280px;
+  height: 800px;
+}
+
+/* Smooth scrollbar for device frames */
+.device-content {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+
+.device-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.device-content::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
