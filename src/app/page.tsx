@@ -102,10 +102,13 @@ export default function Home() {
           <br />
           <span className="text-gray-300">Website Concepts</span>
         </h1>
-        <p className="mt-6 text-base text-gray-400 max-w-lg leading-relaxed font-light">
-          Three distinct design directions for READ Clinic&apos;s digital presence.
-          Each concept is fully responsive and designed with Ayala Alabang&apos;s
-          most discerning families in mind.
+        <p className="mt-2 text-sm tracking-wide text-gray-300 uppercase mb-4" style={{ letterSpacing: "0.15em" }}>
+          Reading Enhancement &amp; Academic Development
+        </p>
+        <p className="mt-2 text-base text-gray-400 max-w-lg leading-relaxed font-light">
+          Three distinct design directions for R.E.A.D. Center&apos;s digital
+          presence. Each concept is fully responsive and designed with Ayala
+          Alabang&apos;s most discerning families in mind.
         </p>
 
         <div className="mt-8 flex flex-wrap gap-6 text-xs text-gray-400">

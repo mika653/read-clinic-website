@@ -83,10 +83,16 @@ function WarmElegantDesign({ device }: { device: string }) {
       <section className={`${isMobile ? "px-5 pt-8 pb-10" : isTablet ? "px-8 pt-12 pb-14" : "px-16 pt-16 pb-20 flex items-center gap-16"}`}>
         <div className={isDesktop ? "flex-1" : ""}>
           <p
-            className="text-xs font-medium uppercase tracking-[0.25em] mb-4"
+            className="text-xs font-medium uppercase tracking-[0.25em] mb-2"
             style={{ fontFamily: "'Inter', sans-serif", color: "#C9A84C" }}
           >
-            Ayala Alabang&apos;s Premier Learning Clinic
+            Reading Enhancement &amp; Academic Development
+          </p>
+          <p
+            className="text-xs tracking-wide mb-4"
+            style={{ fontFamily: "'Inter', sans-serif", color: "#B0A08A" }}
+          >
+            Ayala Alabang&apos;s Premier Learning Center
           </p>
           <h1
             className={`font-bold leading-tight text-[#1A1A2E] ${
@@ -107,9 +113,10 @@ function WarmElegantDesign({ device }: { device: string }) {
               maxWidth: "480px",
             }}
           >
-            We partner with Alabang&apos;s most dedicated parents to unlock every
-            child&apos;s reading potential through expert-guided, personalized
-            programs.
+            A specialized center for Reading Enhancement and Academic
+            Development. We partner with Alabang&apos;s most dedicated families to
+            unlock every child&apos;s potential through expert-guided assessment,
+            intervention, and enrichment programs.
           </p>
 
           <div className={`flex items-center gap-3 mt-8 ${isMobile ? "flex-col" : ""}`}>
@@ -237,26 +244,26 @@ function WarmElegantDesign({ device }: { device: string }) {
             {
               icon: "R",
               color: "#E8B731",
-              title: "Reading Assessment",
-              desc: "Comprehensive evaluation of your child's reading level, comprehension, and learning style by certified specialists.",
+              title: "Reading Enhancement",
+              desc: "Comprehensive reading assessment and structured literacy programs that build fluency, phonics mastery, and comprehension from the ground up.",
             },
             {
               icon: "E",
               color: "#2E7AB8",
-              title: "Expert Intervention",
-              desc: "Tailored one-on-one sessions with licensed reading therapists using evidence-based methodologies.",
+              title: "Educational Therapy",
+              desc: "One-on-one intervention sessions with certified specialists addressing dyslexia, reading difficulties, and learning differences.",
             },
             {
               icon: "A",
               color: "#E84671",
-              title: "Academic Enrichment",
-              desc: "Beyond reading — we develop critical thinking, vocabulary, and a lifelong love for learning.",
+              title: "Academic Development",
+              desc: "Enrichment programs in writing, math readiness, and study skills that complement school curricula and build academic confidence.",
             },
             {
               icon: "D",
               color: "#2BAA8E",
-              title: "Developmental Tracking",
-              desc: "Regular progress reports and parent consultations so you see measurable growth every month.",
+              title: "Developmental Support",
+              desc: "Speech-language pathology, occupational therapy, and psychoeducational assessments to support the whole child's growth.",
             },
           ].map((item, i) => (
             <div
@@ -312,26 +319,26 @@ function WarmElegantDesign({ device }: { device: string }) {
         <div className={`mt-10 grid gap-5 ${isDesktop ? "grid-cols-3" : "grid-cols-1"}`}>
           {[
             {
-              name: "Little Readers",
+              name: "Early Learners",
               age: "Ages 3-5",
               color: "#E8B731",
               bg: "#FFF8E7",
-              features: ["Phonics fundamentals", "Story time sessions", "Pre-reading skills"],
+              features: ["Phonics & letter recognition", "Pre-writing readiness", "Speech-language screening"],
             },
             {
-              name: "Rising Stars",
+              name: "Reading Enhancement",
               age: "Ages 6-9",
               color: "#E84671",
               bg: "#FFF0F3",
-              features: ["Reading fluency", "Comprehension building", "Creative writing intro"],
+              features: ["Structured literacy intervention", "Reading comprehension", "Educational therapy"],
               featured: true,
             },
             {
-              name: "Scholars",
+              name: "Academic Development",
               age: "Ages 10-14",
               color: "#2BAA8E",
               bg: "#F0FBF8",
-              features: ["Advanced comprehension", "Academic writing", "Critical analysis"],
+              features: ["Academic writing mastery", "Study skills coaching", "Critical analysis"],
             },
           ].map((program, i) => (
             <div

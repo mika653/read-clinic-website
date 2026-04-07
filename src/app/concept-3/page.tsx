@@ -76,7 +76,10 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
         {isDesktop ? (
           <div className="flex items-center gap-16 max-w-6xl mx-auto">
             <div className="flex-1">
-              <p className="text-xs tracking-[0.3em] text-gray-400 uppercase mb-6">
+              <p className="text-xs tracking-[0.3em] text-gray-400 uppercase mb-2">
+                Reading Enhancement &amp; Academic Development
+              </p>
+              <p className="text-xs tracking-[0.2em] text-gray-300 uppercase mb-6">
                 Est. 2014 &mdash; Ayala Alabang
               </p>
               <h1
@@ -115,7 +118,10 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           </div>
         ) : (
           <>
-            <p className="text-xs tracking-[0.3em] text-gray-400 uppercase mb-5">
+            <p className="text-xs tracking-[0.3em] text-gray-400 uppercase mb-2">
+              Reading Enhancement &amp; Academic Development
+            </p>
+            <p className="text-xs tracking-[0.2em] text-gray-300 uppercase mb-5">
               Est. 2014 &mdash; Ayala Alabang
             </p>
             <h1
@@ -179,30 +185,30 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               {
                 letter: "R",
                 color: "#E8B731",
-                title: "Read",
-                subtitle: "Assessment",
-                desc: "Comprehensive evaluation of reading ability, comprehension level, and learning patterns.",
+                title: "Reading",
+                subtitle: "Enhancement",
+                desc: "Structured literacy programs, phonics-based intervention, and fluency training grounded in the science of reading.",
               },
               {
                 letter: "E",
                 color: "#2E7AB8",
-                title: "Enrich",
-                subtitle: "Intervention",
-                desc: "Personalized, evidence-based sessions led by certified reading specialists.",
+                title: "Educational",
+                subtitle: "Therapy",
+                desc: "Specialized one-on-one sessions for dyslexia, learning differences, and reading difficulties led by certified therapists.",
               },
               {
                 letter: "A",
                 color: "#E84671",
-                title: "Advance",
+                title: "Academic",
                 subtitle: "Development",
-                desc: "Progressive skill-building through curated programs matched to each child.",
+                desc: "Writing workshops, math readiness, study skills, and enrichment programs aligned to school curricula.",
               },
               {
                 letter: "D",
                 color: "#2BAA8E",
-                title: "Develop",
-                subtitle: "Mastery",
-                desc: "Ongoing tracking, parent collaboration, and measurable academic growth.",
+                title: "Developmental",
+                subtitle: "Support",
+                desc: "Speech-language pathology, occupational therapy, psychoeducational assessment, and parent consultations.",
               },
             ].map((item, i) => (
               <div
@@ -259,27 +265,27 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           <div className="mt-10 space-y-0">
             {[
               {
-                name: "Little Readers",
+                name: "Early Learners",
                 age: "Ages 3\u20135",
-                desc: "Foundation building through phonics, sensory learning, and guided story exploration.",
+                desc: "Pre-reading foundations through structured phonics, sensory play, and speech-language screening.",
                 color: "#E8B731",
               },
               {
-                name: "Rising Stars",
+                name: "Reading Enhancement",
                 age: "Ages 6\u20139",
-                desc: "Fluency acceleration, comprehension strategies, and creative writing introduction.",
+                desc: "Core literacy intervention: fluency, decoding, comprehension strategies, and educational therapy.",
                 color: "#E84671",
               },
               {
-                name: "Young Scholars",
+                name: "Academic Development",
                 age: "Ages 10\u201314",
-                desc: "Advanced analytical reading, academic writing, and critical thinking development.",
+                desc: "Advanced reading, academic writing, study skills, and executive function coaching.",
                 color: "#2BAA8E",
               },
               {
-                name: "Parent Workshop",
-                age: "For Parents",
-                desc: "Equipping Alabang parents with strategies to support reading development at home.",
+                name: "Developmental Services",
+                age: "All Ages",
+                desc: "Speech-language pathology, occupational therapy, psychoeducational assessments, and parent workshops.",
                 color: "#2E7AB8",
               },
             ].map((program, i) => (

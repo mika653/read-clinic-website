@@ -73,10 +73,10 @@ function ModernPlayfulDesign({ device }: { device: string }) {
         {/* Colorful pill badges */}
         <div className="flex flex-wrap gap-2 mb-6">
           {[
-            { label: "Reading", color: "#E8B731", bg: "#FFF8E7" },
-            { label: "Comprehension", color: "#2E7AB8", bg: "#EBF5FF" },
-            { label: "Confidence", color: "#E84671", bg: "#FFF0F3" },
-            { label: "Growth", color: "#2BAA8E", bg: "#F0FBF8" },
+            { label: "Reading Enhancement", color: "#E8B731", bg: "#FFF8E7" },
+            { label: "Educational Therapy", color: "#2E7AB8", bg: "#EBF5FF" },
+            { label: "Academic Development", color: "#E84671", bg: "#FFF0F3" },
+            { label: "Developmental Support", color: "#2BAA8E", bg: "#F0FBF8" },
           ].map((tag, i) => (
             <span
               key={i}
@@ -117,7 +117,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
             </svg>
           </span>
           <br />
-          of Reading
+          of Learning
         </h1>
 
         <p
@@ -126,8 +126,9 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           }`}
           style={{ maxWidth: "520px" }}
         >
-          Located in the heart of Madrigal Business Park, READ Clinic is Ayala
-          Alabang&apos;s most trusted children&apos;s reading and learning center.
+          Reading Enhancement and Academic Development center located in
+          Madrigal Business Park. Ayala Alabang&apos;s most trusted destination
+          for children&apos;s literacy, educational therapy, and academic growth.
         </p>
 
         <div className={`flex items-center gap-3 mt-8 ${isMobile ? "flex-col" : ""}`}>
@@ -210,25 +211,25 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               step: "01",
               color: "#E8B731",
               title: "Connect",
-              desc: "Schedule a free consultation. We listen to your concerns and understand your child's unique needs.",
+              desc: "Schedule a free consultation. We listen to your concerns and understand your child's unique learning profile.",
             },
             {
               step: "02",
               color: "#2E7AB8",
               title: "Assess",
-              desc: "Comprehensive reading and learning assessment by our certified specialists.",
+              desc: "Psychoeducational and reading assessments by certified specialists to identify strengths and areas for growth.",
             },
             {
               step: "03",
               color: "#E84671",
               title: "Personalize",
-              desc: "We design a customized program tailored specifically to your child's learning profile.",
+              desc: "A custom intervention plan — reading enhancement, educational therapy, speech-language support, or academic enrichment.",
             },
             {
               step: "04",
               color: "#2BAA8E",
               title: "Transform",
-              desc: "Watch your child blossom with regular sessions, progress tracking, and parent involvement.",
+              desc: "Regular sessions, monthly progress reports, and parent workshops to ensure lasting academic confidence.",
             },
           ].map((item, i) => (
             <div key={i} className="relative group">
@@ -285,28 +286,28 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               emoji_alt: "Seedling",
               color: "#E8B731",
               gradient: "linear-gradient(135deg, #FFF8E7, #FFF3D6)",
-              name: "Little Readers",
+              name: "Early Learners",
               age: "3-5 years",
-              desc: "Building foundations through phonics, sensory play, and story exploration.",
-              features: ["Phonics & letter recognition", "Guided story sessions", "Fine motor development"],
+              desc: "Building pre-reading foundations through structured phonics, sensory play, and guided story exploration.",
+              features: ["Phonics & letter recognition", "Pre-writing & fine motor skills", "Speech-language screening"],
             },
             {
               emoji_alt: "Star",
               color: "#E84671",
               gradient: "linear-gradient(135deg, #FFF0F3, #FFE0E8)",
-              name: "Rising Stars",
+              name: "Reading Enhancement",
               age: "6-9 years",
-              desc: "Strengthening fluency, comprehension, and a confident love for reading.",
-              features: ["Reading fluency drills", "Comprehension strategies", "Creative expression"],
+              desc: "Core literacy program strengthening fluency, decoding, comprehension, and reading confidence.",
+              features: ["Structured literacy intervention", "Reading comprehension strategies", "Educational therapy sessions"],
             },
             {
               emoji_alt: "Rocket",
               color: "#2BAA8E",
               gradient: "linear-gradient(135deg, #F0FBF8, #E0F7F1)",
-              name: "Young Scholars",
+              name: "Academic Development",
               age: "10-14 years",
-              desc: "Advanced reading, analytical thinking, and academic writing mastery.",
-              features: ["Critical reading skills", "Essay & report writing", "Vocabulary expansion"],
+              desc: "Advanced reading, analytical thinking, academic writing, and study skills mastery.",
+              features: ["Critical reading & analysis", "Essay & academic writing", "Study skills & executive function"],
             },
           ].map((program, i) => (
             <div
@@ -498,8 +499,9 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           <div>
             <ReadLogo size={24} />
             <p className="mt-3 text-xs text-white/40 max-w-xs leading-relaxed">
-              Nurturing Minds, Shaping Futures. Ayala Alabang&apos;s premier
-              children&apos;s learning clinic since 2014.
+              Reading Enhancement &amp; Academic Development. Ayala Alabang&apos;s
+              premier children&apos;s learning center. Nurturing Minds, Shaping
+              Futures since 2014.
             </p>
           </div>
           <div className={`${isDesktop ? "flex gap-16" : isTablet ? "flex gap-12" : "space-y-6"}`}>

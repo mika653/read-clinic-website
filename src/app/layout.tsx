@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "READ Clinic | Nurturing Minds, Shaping Futures",
+  title: "R.E.A.D. Center | Reading Enhancement & Academic Development",
   description:
-    "Premium children's learning and reading clinic in Ayala Alabang, Muntinlupa City. Empowering young readers through expert-guided programs.",
+    "Reading Enhancement and Academic Development center in Ayala Alabang, Muntinlupa City. Nurturing Minds, Shaping Futures through expert-guided literacy programs, educational therapy, and developmental support.",
 };
 
 export default function RootLayout({
