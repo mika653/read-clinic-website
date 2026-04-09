@@ -126,9 +126,10 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           }`}
           style={{ maxWidth: "520px" }}
         >
-          Reading Enhancement and Academic Development center located in
-          Madrigal Business Park. Ayala Alabang&apos;s most trusted destination
-          for children&apos;s literacy, educational therapy, and academic growth.
+          We&apos;ve moved into a bigger, brighter home — and we can&apos;t wait to
+          welcome you! R.E.A.D. Center is where every child discovers the joy
+          of learning through reading enhancement, executive function skills,
+          and academic development.
         </p>
 
         <div className={`flex items-center gap-3 mt-8 ${isMobile ? "flex-col" : ""}`}>
@@ -166,9 +167,9 @@ function ModernPlayfulDesign({ device }: { device: string }) {
         >
           {[
             { number: "500+", label: "Happy Families" },
-            { number: "10+", label: "Years Experience" },
-            { number: "15", label: "Expert Therapists" },
-            { number: "98%", label: "Parent Satisfaction" },
+            { number: "10+", label: "Years of Excellence" },
+            { number: "New!", label: "Bigger, Brighter Space" },
+            { number: "Top", label: "School Partnerships" },
           ].map((stat, i) => (
             <div key={i}>
               <div
@@ -447,6 +448,44 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* School Partnerships */}
+      <section
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-8 py-12" : "px-16 py-14"}`}
+        style={{ backgroundColor: "#FAFAF8" }}
+      >
+        <div className="text-center">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+            School Partnerships
+          </span>
+          <h2
+            className={`mt-3 font-bold text-[#1A1A2E] ${
+              isMobile ? "text-xl" : "text-2xl"
+            }`}
+            style={{ fontFamily: "'Cormorant', serif" }}
+          >
+            Equipping Educators for Greatness
+          </h2>
+          <p className="mt-3 text-sm text-gray-500 max-w-lg mx-auto leading-relaxed">
+            We partner with Alabang&apos;s leading schools like PAREF Woodrose,
+            conducting workshops on executive function skills and literacy
+            strategies — equipping teachers with tools to guide students to
+            greatness!
+          </p>
+          <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
+            {["PAREF Woodrose", "Teacher Workshops", "Executive Function Talks"].map(
+              (tag, i) => (
+                <span
+                  key={i}
+                  className="text-xs font-semibold px-4 py-2 rounded-full border border-gray-200 text-gray-500"
+                >
+                  {tag}
+                </span>
+              )
+            )}
+          </div>
         </div>
       </section>
 

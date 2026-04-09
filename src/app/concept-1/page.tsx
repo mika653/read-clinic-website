@@ -113,10 +113,10 @@ function WarmElegantDesign({ device }: { device: string }) {
               maxWidth: "480px",
             }}
           >
-            A specialized center for Reading Enhancement and Academic
-            Development. We partner with Alabang&apos;s most dedicated families to
-            unlock every child&apos;s potential through expert-guided assessment,
-            intervention, and enrichment programs.
+            We&apos;ve moved into a bigger, brighter home — and we can&apos;t wait to
+            welcome you! R.E.A.D. Center is Ayala Alabang&apos;s dedicated space
+            for reading enhancement, academic development, and building the
+            skills that shape your child&apos;s success.
           </p>
 
           <div className={`flex items-center gap-3 mt-8 ${isMobile ? "flex-col" : ""}`}>
@@ -245,25 +245,25 @@ function WarmElegantDesign({ device }: { device: string }) {
               icon: "R",
               color: "#E8B731",
               title: "Reading Enhancement",
-              desc: "Comprehensive reading assessment and structured literacy programs that build fluency, phonics mastery, and comprehension from the ground up.",
+              desc: "From phonics to fluency — structured literacy programs that build a strong reading foundation and a genuine love for books.",
             },
             {
               icon: "E",
               color: "#2E7AB8",
-              title: "Educational Therapy",
-              desc: "One-on-one intervention sessions with certified specialists addressing dyslexia, reading difficulties, and learning differences.",
+              title: "Executive Function",
+              desc: "From planning to problem-solving, we equip children with the executive function skills that shape success in school and beyond.",
             },
             {
               icon: "A",
               color: "#E84671",
               title: "Academic Development",
-              desc: "Enrichment programs in writing, math readiness, and study skills that complement school curricula and build academic confidence.",
+              desc: "Writing workshops, study skills, and enrichment programs designed to complement school curricula and build academic confidence.",
             },
             {
               icon: "D",
               color: "#2BAA8E",
               title: "Developmental Support",
-              desc: "Speech-language pathology, occupational therapy, and psychoeducational assessments to support the whole child's growth.",
+              desc: "Speech-language pathology, occupational therapy, and psychoeducational assessments — supporting the whole child's growth.",
             },
           ].map((item, i) => (
             <div
@@ -414,6 +414,44 @@ function WarmElegantDesign({ device }: { device: string }) {
         </div>
       </section>
 
+      {/* Trusted By */}
+      <section
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-8 py-12" : "px-16 py-14"} text-center`}
+        style={{ backgroundColor: "#FDFBF7" }}
+      >
+        <p
+          className="text-xs font-medium uppercase tracking-[0.25em] mb-6"
+          style={{ fontFamily: "'Inter', sans-serif", color: "#B0A08A" }}
+        >
+          Trusted by Leading Schools &amp; Families
+        </p>
+        <div
+          className={`flex items-center justify-center gap-8 flex-wrap`}
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          {[
+            "PAREF Woodrose",
+            "Ayala Alabang Families",
+            "South Metro Schools",
+          ].map((partner, i) => (
+            <div
+              key={i}
+              className="px-5 py-2.5 rounded-full text-sm text-gray-500 border border-[#E5E0D8]"
+            >
+              {partner}
+            </div>
+          ))}
+        </div>
+        <p
+          className="mt-5 text-xs text-gray-400 max-w-md mx-auto leading-relaxed"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
+          We partner with Alabang&apos;s top schools — equipping teachers with
+          tools to guide students to greatness through executive function
+          workshops and literacy training.
+        </p>
+      </section>
+
       {/* Testimonials */}
       <section
         className={`${isMobile ? "px-5 py-12" : isTablet ? "px-8 py-14" : "px-16 py-20"}`}
@@ -508,16 +546,17 @@ function WarmElegantDesign({ device }: { device: string }) {
             isMobile ? "text-2xl" : "text-3xl"
           }`}
         >
-          Begin Your Child&apos;s
+          Come Visit Our
           <br />
-          Reading Journey
+          New Home!
         </h2>
         <p
           className="mt-4 text-sm leading-relaxed max-w-md mx-auto"
           style={{ fontFamily: "'Inter', sans-serif", color: "#8B8B8B" }}
         >
-          Book a complimentary consultation at our Ayala Alabang center. Let us
-          show you how we can help your child thrive.
+          We&apos;ve moved into a bigger, brighter space — and we can&apos;t wait to
+          welcome you! Book a complimentary consultation and see how we can
+          help your child thrive.
         </p>
         <button
           className="mt-8 px-10 py-4 rounded-full text-white font-medium text-sm cursor-pointer transition-all hover:shadow-lg hover:scale-105"

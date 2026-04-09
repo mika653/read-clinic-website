@@ -192,9 +192,9 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               {
                 letter: "E",
                 color: "#2E7AB8",
-                title: "Educational",
-                subtitle: "Therapy",
-                desc: "Specialized one-on-one sessions for dyslexia, learning differences, and reading difficulties led by certified therapists.",
+                title: "Executive",
+                subtitle: "Function",
+                desc: "From planning to problem-solving — we build the executive function skills that shape success in school and beyond.",
               },
               {
                 letter: "A",
@@ -344,6 +344,36 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* School Partnerships */}
+      <section
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-10 py-12" : "px-10 py-14"}`}
+      >
+        <div className={`${isDesktop ? "max-w-6xl mx-auto" : ""}`}>
+          <div className="flex items-center gap-4 mb-6">
+            <div className="flex-1 h-px bg-gray-100" />
+            <span className="text-xs tracking-[0.3em] text-gray-300 uppercase">
+              Partnerships
+            </span>
+            <div className="flex-1 h-px bg-gray-100" />
+          </div>
+          <div className="text-center">
+            <p
+              className={`font-normal text-[#1A1A2E] ${isMobile ? "text-lg" : "text-xl"}`}
+              style={{ fontFamily: "'Bodoni Moda', serif" }}
+            >
+              Equipping educators with tools
+              <br />
+              <em>to guide students to greatness.</em>
+            </p>
+            <p className="mt-3 text-sm text-gray-400 font-light max-w-md mx-auto leading-relaxed">
+              We partner with leading Alabang schools like PAREF Woodrose,
+              conducting executive function workshops and literacy training for
+              teachers.
+            </p>
           </div>
         </div>
       </section>
