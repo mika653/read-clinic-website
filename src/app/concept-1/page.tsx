@@ -1,6 +1,12 @@
 "use client";
 
 import DeviceSwitcher from "@/components/DeviceSwitcher";
+import {
+  WhatsAppButton,
+  BookingWidget,
+  ParentPortal,
+  PaymentSection,
+} from "@/components/Integrations";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
@@ -612,6 +618,18 @@ function WarmElegantDesign({ device }: { device: string }) {
           Book a Free Consultation
         </button>
       </section>
+
+      {/* Integration: Online Booking */}
+      <BookingWidget variant="warm" isMobile={isMobile} />
+
+      {/* Integration: Parent Portal */}
+      <ParentPortal variant="warm" isMobile={isMobile} />
+
+      {/* Integration: Payments */}
+      <PaymentSection variant="warm" isMobile={isMobile} />
+
+      {/* Floating WhatsApp */}
+      <WhatsAppButton style="default" />
 
       {/* Join Our Team */}
       <section

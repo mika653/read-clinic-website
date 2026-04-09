@@ -1,6 +1,12 @@
 "use client";
 
 import DeviceSwitcher from "@/components/DeviceSwitcher";
+import {
+  WhatsAppButton,
+  BookingWidget,
+  ParentPortal,
+  PaymentSection,
+} from "@/components/Integrations";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
@@ -556,6 +562,18 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           </div>
         </div>
       </section>
+
+      {/* Integration: Online Booking */}
+      <BookingWidget variant="playful" isMobile={isMobile} />
+
+      {/* Integration: Parent Portal */}
+      <ParentPortal variant="playful" isMobile={isMobile} />
+
+      {/* Integration: Payments */}
+      <PaymentSection variant="playful" isMobile={isMobile} />
+
+      {/* Floating WhatsApp */}
+      <WhatsAppButton style="pink" />
 
       {/* Location & CTA */}
       <section

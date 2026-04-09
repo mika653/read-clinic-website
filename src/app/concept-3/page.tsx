@@ -1,6 +1,12 @@
 "use client";
 
 import DeviceSwitcher from "@/components/DeviceSwitcher";
+import {
+  WhatsAppButton,
+  BookingWidget,
+  ParentPortal,
+  PaymentSection,
+} from "@/components/Integrations";
 
 function ReadLogo({ size = 40, variant = "color" }: { size?: number; variant?: "color" | "dark" }) {
   const colors = variant === "dark"
@@ -493,6 +499,18 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           </div>
         </div>
       </section>
+
+      {/* Integration: Online Booking */}
+      <BookingWidget variant="editorial" isMobile={isMobile} />
+
+      {/* Integration: Parent Portal */}
+      <ParentPortal variant="editorial" isMobile={isMobile} />
+
+      {/* Integration: Payments */}
+      <PaymentSection variant="editorial" isMobile={isMobile} />
+
+      {/* Floating WhatsApp */}
+      <WhatsAppButton style="dark" />
 
       {/* CTA - Full bleed */}
       <section
