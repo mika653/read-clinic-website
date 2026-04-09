@@ -348,33 +348,91 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
         </div>
       </section>
 
-      {/* School Partnerships */}
+      {/* Community & Partnerships */}
       <section
-        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-10 py-12" : "px-10 py-14"}`}
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-10 py-12" : "px-10 py-16"}`}
       >
         <div className={`${isDesktop ? "max-w-6xl mx-auto" : ""}`}>
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-8">
             <div className="flex-1 h-px bg-gray-100" />
             <span className="text-xs tracking-[0.3em] text-gray-300 uppercase">
-              Partnerships
+              Beyond Our Walls
             </span>
             <div className="flex-1 h-px bg-gray-100" />
           </div>
-          <div className="text-center">
-            <p
-              className={`font-normal text-[#1A1A2E] ${isMobile ? "text-lg" : "text-xl"}`}
+
+          <div className={`${isDesktop ? "grid grid-cols-3 gap-12" : "space-y-8"}`}>
+            {[
+              {
+                title: "School Workshops",
+                partner: "PAREF Woodrose",
+                desc: "Executive function talks and literacy training for teachers at leading Alabang schools.",
+                color: "#E84671",
+              },
+              {
+                title: "Volunteer Teaching",
+                partner: "AlpaBasa Phil",
+                desc: "Reading programs and volunteer teachers brought to local elementary schools and communities.",
+                color: "#2E7AB8",
+              },
+              {
+                title: "Community Outreach",
+                partner: "Rotary Club of Pilipinas",
+                desc: "Reading resources and developmental support for underserved communities across the South.",
+                color: "#2BAA8E",
+              },
+            ].map((item, i) => (
+              <div key={i}>
+                <div
+                  className="w-2 h-2 rounded-full mb-3"
+                  style={{ backgroundColor: item.color }}
+                />
+                <p className="text-xs text-gray-400 tracking-wide mb-1">
+                  {item.partner}
+                </p>
+                <h3
+                  className="text-lg font-normal text-[#1A1A2E] mb-2"
+                  style={{ fontFamily: "'Bodoni Moda', serif" }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-sm text-gray-400 font-light leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join the Team */}
+      <section
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-10 py-12" : "px-10 py-14"} bg-[#FAFAF8]`}
+      >
+        <div className={`${isDesktop ? "max-w-6xl mx-auto flex items-center justify-between" : ""}`}>
+          <div>
+            <p className="text-xs tracking-[0.3em] text-gray-400 uppercase mb-2">
+              Careers
+            </p>
+            <h3
+              className={`font-normal text-[#1A1A2E] ${isMobile ? "text-xl" : "text-2xl"}`}
               style={{ fontFamily: "'Bodoni Moda', serif" }}
             >
-              Equipping educators with tools
-              <br />
-              <em>to guide students to greatness.</em>
-            </p>
-            <p className="mt-3 text-sm text-gray-400 font-light max-w-md mx-auto leading-relaxed">
-              We partner with leading Alabang schools like PAREF Woodrose,
-              conducting executive function workshops and literacy training for
-              teachers.
+              Join the R.E.A.D. Team
+            </h3>
+            <p className="mt-2 text-sm text-gray-400 font-light max-w-md leading-relaxed">
+              We&apos;re growing and looking for Teacher / Reading Clinicians and
+              a Clinic Administrator. Education or Psychology graduates welcome.
+              Training provided.
             </p>
           </div>
+          <button
+            className={`${
+              isMobile ? "w-full mt-6" : "mt-0 ml-8"
+            } px-8 py-3.5 bg-[#1A1A2E] text-white text-sm font-light tracking-wider cursor-pointer transition-all hover:bg-[#2a2a44] whitespace-nowrap`}
+          >
+            Apply Now
+          </button>
         </div>
       </section>
 

@@ -132,6 +132,13 @@ export default function Home() {
               iPhone, iPad, Desktop
             </span>
           </div>
+          <div className="w-px h-8 bg-gray-100" />
+          <div>
+            <span className="text-gray-300 block mb-1">Partners</span>
+            <span className="text-[#1A1A2E] font-medium">
+              PAREF Woodrose, AlpaBasa Phil, Rotary Club
+            </span>
+          </div>
         </div>
       </section>
 

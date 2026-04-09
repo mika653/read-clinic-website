@@ -414,42 +414,86 @@ function WarmElegantDesign({ device }: { device: string }) {
         </div>
       </section>
 
-      {/* Trusted By */}
+      {/* Community & Partnerships */}
       <section
-        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-8 py-12" : "px-16 py-14"} text-center`}
+        className={`${isMobile ? "px-5 py-12" : isTablet ? "px-8 py-14" : "px-16 py-16"}`}
         style={{ backgroundColor: "#FDFBF7" }}
       >
         <p
-          className="text-xs font-medium uppercase tracking-[0.25em] mb-6"
-          style={{ fontFamily: "'Inter', sans-serif", color: "#B0A08A" }}
+          className="text-xs font-medium uppercase tracking-[0.25em] mb-3"
+          style={{ fontFamily: "'Inter', sans-serif", color: "#C9A84C" }}
         >
-          Trusted by Leading Schools &amp; Families
+          Community &amp; Partnerships
         </p>
+        <h2
+          className={`font-bold text-[#1A1A2E] ${
+            isMobile ? "text-2xl" : "text-3xl"
+          }`}
+        >
+          Beyond Our Walls
+        </h2>
+        <p
+          className="mt-3 text-sm leading-relaxed max-w-lg"
+          style={{ fontFamily: "'Inter', sans-serif", color: "#8B8B8B" }}
+        >
+          R.E.A.D. Center believes in giving back. We partner with schools and
+          organizations to bring literacy and learning to more Filipino children.
+        </p>
+
         <div
-          className={`flex items-center justify-center gap-8 flex-wrap`}
-          style={{ fontFamily: "'Inter', sans-serif" }}
+          className={`mt-10 grid gap-5 ${
+            isDesktop ? "grid-cols-3" : "grid-cols-1"
+          }`}
         >
           {[
-            "PAREF Woodrose",
-            "Ayala Alabang Families",
-            "South Metro Schools",
-          ].map((partner, i) => (
+            {
+              color: "#E84671",
+              title: "School Workshops",
+              desc: "Executive function talks and literacy training for teachers at PAREF Woodrose and other leading Alabang schools.",
+              tag: "PAREF Woodrose",
+            },
+            {
+              color: "#2E7AB8",
+              title: "Literacy Outreach",
+              desc: "Classroom reading sessions and volunteer teacher programs in partnership with AlpaBasa Phil and local elementary schools.",
+              tag: "AlpaBasa Phil",
+            },
+            {
+              color: "#2BAA8E",
+              title: "Community Service",
+              desc: "Proud partners of the Rotary Club of Pilipinas, bringing reading resources and developmental support to underserved communities.",
+              tag: "Rotary Club",
+            },
+          ].map((item, i) => (
             <div
               key={i}
-              className="px-5 py-2.5 rounded-full text-sm text-gray-500 border border-[#E5E0D8]"
+              className="bg-white rounded-2xl p-6 border border-[#F0EBE3]"
             >
-              {partner}
+              <span
+                className="inline-block text-xs font-medium px-3 py-1 rounded-full mb-4"
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  color: item.color,
+                  backgroundColor: `${item.color}12`,
+                }}
+              >
+                {item.tag}
+              </span>
+              <h3
+                className="font-semibold text-[#1A1A2E] text-base mb-2"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                {item.title}
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ fontFamily: "'Inter', sans-serif", color: "#8B8B8B" }}
+              >
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>
-        <p
-          className="mt-5 text-xs text-gray-400 max-w-md mx-auto leading-relaxed"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
-          We partner with Alabang&apos;s top schools — equipping teachers with
-          tools to guide students to greatness through executive function
-          workshops and literacy training.
-        </p>
       </section>
 
       {/* Testimonials */}
@@ -567,6 +611,68 @@ function WarmElegantDesign({ device }: { device: string }) {
         >
           Book a Free Consultation
         </button>
+      </section>
+
+      {/* Join Our Team */}
+      <section
+        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-8 py-12" : "px-16 py-14"}`}
+        style={{ backgroundColor: "#F0FBF8" }}
+      >
+        <div className={`${isDesktop ? "flex items-center justify-between" : ""}`}>
+          <div className={isDesktop ? "max-w-md" : ""}>
+            <p
+              className="text-xs font-medium uppercase tracking-[0.25em] mb-3"
+              style={{ fontFamily: "'Inter', sans-serif", color: "#2BAA8E" }}
+            >
+              Join the R.E.A.D. Team
+            </p>
+            <h2
+              className={`font-bold text-[#1A1A2E] ${
+                isMobile ? "text-xl" : "text-2xl"
+              }`}
+            >
+              We&apos;re Growing!
+            </h2>
+            <p
+              className="mt-3 text-sm leading-relaxed"
+              style={{ fontFamily: "'Inter', sans-serif", color: "#8B8B8B" }}
+            >
+              Our clinic is growing and we&apos;re looking for dedicated teachers
+              and clinicians who share our passion for helping children learn.
+              Training will be provided!
+            </p>
+          </div>
+          <div className={`${isDesktop ? "" : "mt-6"} space-y-2`} style={{ fontFamily: "'Inter', sans-serif" }}>
+            {["Teacher / Reading Clinician", "Clinic Administrator"].map(
+              (role, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-xl px-5 py-3 flex items-center justify-between gap-4 border border-[#E0F0EB]"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-[#1A1A2E]">{role}</p>
+                    <p className="text-xs text-gray-400">
+                      Education / Psychology graduates welcome
+                    </p>
+                  </div>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#2BAA8E"
+                    strokeWidth="2"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </div>
+              )
+            )}
+            <p className="text-xs text-gray-400 mt-2">
+              Send your resume to readclinicph@gmail.com
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Footer */}

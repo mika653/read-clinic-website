@@ -451,40 +451,108 @@ function ModernPlayfulDesign({ device }: { device: string }) {
         </div>
       </section>
 
-      {/* School Partnerships */}
+      {/* Community Impact */}
       <section
-        className={`${isMobile ? "px-5 py-10" : isTablet ? "px-8 py-12" : "px-16 py-14"}`}
-        style={{ backgroundColor: "#FAFAF8" }}
+        className={`${isMobile ? "px-5 py-12" : isTablet ? "px-8 py-14" : "px-16 py-16"}`}
       >
-        <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
-            School Partnerships
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C9A84C]">
+            Beyond Our Walls
           </span>
           <h2
             className={`mt-3 font-bold text-[#1A1A2E] ${
-              isMobile ? "text-xl" : "text-2xl"
+              isMobile ? "text-2xl" : "text-3xl"
             }`}
             style={{ fontFamily: "'Cormorant', serif" }}
           >
-            Equipping Educators for Greatness
+            Community &amp; Partnerships
           </h2>
-          <p className="mt-3 text-sm text-gray-500 max-w-lg mx-auto leading-relaxed">
-            We partner with Alabang&apos;s leading schools like PAREF Woodrose,
-            conducting workshops on executive function skills and literacy
-            strategies — equipping teachers with tools to guide students to
-            greatness!
-          </p>
-          <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
-            {["PAREF Woodrose", "Teacher Workshops", "Executive Function Talks"].map(
-              (tag, i) => (
-                <span
-                  key={i}
-                  className="text-xs font-semibold px-4 py-2 rounded-full border border-gray-200 text-gray-500"
-                >
-                  {tag}
-                </span>
-              )
-            )}
+        </div>
+
+        <div className={`grid gap-5 ${isDesktop ? "grid-cols-3" : "grid-cols-1"}`}>
+          {[
+            {
+              color: "#E84671",
+              bg: "linear-gradient(135deg, #FFF0F3, #FFE8ED)",
+              title: "School Workshops",
+              desc: "Executive function talks and literacy training for educators at PAREF Woodrose and other leading Alabang schools.",
+              tag: "PAREF Woodrose",
+            },
+            {
+              color: "#2E7AB8",
+              bg: "linear-gradient(135deg, #EBF5FF, #E0EEFF)",
+              title: "Volunteer Teaching",
+              desc: "Partnering with AlpaBasa Phil to bring reading programs and volunteer teachers to local elementary schools.",
+              tag: "AlpaBasa Phil",
+            },
+            {
+              color: "#2BAA8E",
+              bg: "linear-gradient(135deg, #F0FBF8, #E0F7F1)",
+              title: "Community Outreach",
+              desc: "Working alongside the Rotary Club of Pilipinas to bring reading resources and developmental support to more communities.",
+              tag: "Rotary Club",
+            },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="rounded-3xl p-6"
+              style={{ background: item.bg }}
+            >
+              <span
+                className="inline-block text-xs font-semibold px-3 py-1 rounded-full mb-4"
+                style={{
+                  color: item.color,
+                  backgroundColor: `${item.color}15`,
+                }}
+              >
+                {item.tag}
+              </span>
+              <h3
+                className="text-lg font-bold text-[#1A1A2E] mb-2"
+                style={{ fontFamily: "'Cormorant', serif" }}
+              >
+                {item.title}
+              </h3>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Join Our Team */}
+      <section
+        className={`${isMobile ? "mx-5 mb-6" : isTablet ? "mx-8 mb-8" : "mx-16 mb-12"} rounded-3xl overflow-hidden`}
+        style={{
+          background: "linear-gradient(135deg, #2BAA8E 0%, #1E8C74 100%)",
+        }}
+      >
+        <div className={`${isMobile ? "p-8" : "p-10"} text-white`}>
+          <div className={`${isDesktop ? "flex items-center justify-between" : ""}`}>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">
+                Join the R.E.A.D. Team
+              </span>
+              <h3
+                className={`mt-2 font-bold ${isMobile ? "text-xl" : "text-2xl"}`}
+                style={{ fontFamily: "'Cormorant', serif" }}
+              >
+                We&apos;re Hiring!
+              </h3>
+              <p className="mt-2 text-sm text-white/70 max-w-md leading-relaxed">
+                Our clinic is growing! We&apos;re looking for dedicated Teacher /
+                Reading Clinicians and a Clinic Administrator. Education or
+                Psychology graduates welcome — training provided!
+              </p>
+            </div>
+            <button
+              className={`${
+                isMobile ? "w-full mt-6" : "mt-4"
+              } px-8 py-3 rounded-2xl bg-white text-[#2BAA8E] font-semibold text-sm cursor-pointer transition-all hover:shadow-lg`}
+            >
+              Send Resume
+            </button>
           </div>
         </div>
       </section>
