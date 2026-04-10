@@ -174,7 +174,7 @@ function WarmElegantDesign({ device }: { device: string }) {
         {isDesktop && (
           <div className="flex-1 relative">
             <div
-              className="w-full aspect-[4/3] rounded-3xl overflow-hidden"
+              className="w-full aspect-[16/10] rounded-3xl overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #FFF3E0 0%, #FCE4EC 100%)",
               }}

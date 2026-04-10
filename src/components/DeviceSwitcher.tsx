@@ -139,10 +139,13 @@ export default function DeviceSwitcher({
       {/* Device frame area */}
       <div className="flex-1 flex items-start justify-center py-8 px-4 overflow-auto">
         <div
-          className="device-frame relative bg-white rounded-[2rem] shadow-2xl border border-gray-200 overflow-hidden transition-all duration-500 ease-out"
+          className="device-frame relative bg-white shadow-2xl border border-gray-200 overflow-hidden transition-all duration-500 ease-out"
           style={{
             width: `min(${config.width}px, calc(100vw - 2rem))`,
-            height: `min(${config.height}px, calc(100vh - 8rem))`,
+            height: device === "desktop"
+              ? `min(${config.height}px, calc(100vh - 6rem))`
+              : `min(${config.height}px, calc(100vh - 8rem))`,
+            borderRadius: device === "desktop" ? "1rem" : "2rem",
           }}
         >
           {/* Notch for mobile */}
@@ -150,8 +153,25 @@ export default function DeviceSwitcher({
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-[30px] bg-black rounded-b-2xl z-10" />
           )}
 
+          {/* Browser chrome for desktop */}
+          {device === "desktop" && (
+            <div className="h-8 bg-gray-100 border-b border-gray-200 flex items-center px-3 gap-1.5 flex-shrink-0">
+              <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+              <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+              <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+              <div className="ml-3 flex-1 h-4 bg-white rounded text-[9px] text-gray-400 flex items-center px-2">
+                readcenter.ph
+              </div>
+            </div>
+          )}
+
           {/* Content */}
-          <div className="device-content w-full h-full overflow-y-auto overflow-x-hidden">
+          <div
+            className="device-content w-full overflow-y-auto overflow-x-hidden"
+            style={{
+              height: device === "desktop" ? "calc(100% - 2rem)" : "100%",
+            }}
+          >
             {children(device)}
           </div>
         </div>
