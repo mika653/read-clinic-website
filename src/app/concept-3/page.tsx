@@ -8,19 +8,14 @@ import {
   PaymentSection,
 } from "@/components/Integrations";
 
-function ReadLogo({ size = 40, variant = "color" }: { size?: number; variant?: "color" | "dark" }) {
-  const colors = variant === "dark"
-    ? ["#1A1A2E", "#1A1A2E", "#1A1A2E", "#1A1A2E"]
-    : ["#E8B731", "#2E7AB8", "#E84671", "#2BAA8E"];
+function ReadLogo({ size = 40 }: { size?: number }) {
   return (
-    <svg width={size * 4} height={size} viewBox="0 0 160 40" fill="none">
-      <circle cx="18" cy="20" r="16" fill={colors[0]} />
-      <rect x="18" y="12" width="10" height="8" fill="white" />
-      <rect x="44" y="8" width="20" height="12" fill={colors[1]} />
-      <rect x="44" y="20" width="14" height="12" fill={colors[1]} />
-      <polygon points="92,32 80,8 104,32" fill={colors[2]} />
-      <path d="M 116 8 A 16 16 0 0 1 116 40 Z" fill={colors[3]} />
-    </svg>
+    <img
+      src="/logo.jpg"
+      alt="R.E.A.D. Center"
+      style={{ height: `${size}px`, width: "auto" }}
+      className="object-contain"
+    />
   );
 }
 
@@ -53,7 +48,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
         } border-b border-gray-100`}
         style={{ paddingTop: isMobile ? "42px" : undefined }}
       >
-        <ReadLogo size={isMobile ? 24 : 30} variant="dark" />
+        <ReadLogo size={isMobile ? 24 : 30}  />
         {!isMobile && (
           <div className="flex items-center gap-10 text-sm text-gray-500 font-light tracking-wide">
             <span className="cursor-pointer hover:text-[#1A1A2E] transition-colors">Services</span>
@@ -566,7 +561,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           }`}
         >
           <div>
-            <ReadLogo size={20} variant="dark" />
+            <ReadLogo size={20}  />
             <p className="mt-3 text-xs text-gray-300 max-w-xs leading-relaxed font-light">
               4th Floor, JD Tower, Commerce Ave. cor. Acacia Ave.,
               <br />

@@ -4,14 +4,12 @@ import Link from "next/link";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
-    <svg width={size * 4} height={size} viewBox="0 0 160 40" fill="none">
-      <circle cx="18" cy="20" r="16" fill="#E8B731" />
-      <rect x="18" y="12" width="10" height="8" fill="white" />
-      <rect x="44" y="8" width="20" height="12" fill="#2E7AB8" />
-      <rect x="44" y="20" width="14" height="12" fill="#2E7AB8" />
-      <polygon points="92,32 80,8 104,32" fill="#E84671" />
-      <path d="M 116 8 A 16 16 0 0 1 116 40 Z" fill="#2BAA8E" />
-    </svg>
+    <img
+      src="/logo.jpg"
+      alt="R.E.A.D. Center"
+      style={{ height: `${size}px`, width: "auto" }}
+      className="object-contain"
+    />
   );
 }
 
