@@ -51,7 +51,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
         }`}
         style={{ paddingTop: isMobile ? "40px" : undefined }}
       >
-        <ReadLogo size={isMobile ? 28 : 36} />
+        <ReadLogo size={isMobile ? 44 : 56} />
         {!isMobile && (
           <div className="flex items-center gap-8 text-sm font-medium text-gray-600">
             <span className="cursor-pointer hover:text-[#E84671] transition-colors">Programs</span>
@@ -620,7 +620,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           }`}
         >
           <div>
-            <ReadLogo size={24} />
+            <ReadLogo size={36} />
             <p className="mt-3 text-xs text-white/40 max-w-xs leading-relaxed">
               Reading Enhancement &amp; Academic Development. Ayala Alabang&apos;s
               premier children&apos;s learning center. Nurturing Minds, Shaping

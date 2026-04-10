@@ -48,7 +48,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
         } border-b border-gray-100`}
         style={{ paddingTop: isMobile ? "42px" : undefined }}
       >
-        <ReadLogo size={isMobile ? 24 : 30}  />
+        <ReadLogo size={isMobile ? 40 : 50}  />
         {!isMobile && (
           <div className="flex items-center gap-10 text-sm text-gray-500 font-light tracking-wide">
             <span className="cursor-pointer hover:text-[#1A1A2E] transition-colors">Services</span>
@@ -561,7 +561,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           }`}
         >
           <div>
-            <ReadLogo size={20}  />
+            <ReadLogo size={32}  />
             <p className="mt-3 text-xs text-gray-300 max-w-xs leading-relaxed font-light">
               4th Floor, JD Tower, Commerce Ave. cor. Acacia Ave.,
               <br />

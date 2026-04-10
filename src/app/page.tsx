@@ -51,7 +51,7 @@ export default function Home() {
     >
       {/* Minimal header */}
       <header className="px-6 sm:px-10 pt-10 pb-8">
-        <ReadLogo size={32} />
+        <ReadLogo size={52} />
         <p className="mt-1 text-xs tracking-[0.15em] text-gray-400 uppercase">
           Reading Enhancement &amp; Academic Development
         </p>
@@ -258,7 +258,7 @@ export default function Home() {
       {/* Minimal footer */}
       <footer className="px-6 sm:px-10 py-6 border-t border-gray-50">
         <div className="flex items-center justify-between text-xs text-gray-300">
-          <ReadLogo size={16} />
+          <ReadLogo size={28} />
           <span>readclinicph@gmail.com</span>
         </div>
       </footer>

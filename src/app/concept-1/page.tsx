@@ -51,7 +51,7 @@ function WarmElegantDesign({ device }: { device: string }) {
         }`}
         style={{ paddingTop: isMobile ? "40px" : undefined }}
       >
-        <ReadLogo size={isMobile ? 28 : 36} />
+        <ReadLogo size={isMobile ? 44 : 56} />
         {!isMobile && (
           <div
             className="flex items-center gap-8 text-sm tracking-wide"
@@ -698,7 +698,7 @@ function WarmElegantDesign({ device }: { device: string }) {
           }`}
         >
           <div>
-            <ReadLogo size={24} />
+            <ReadLogo size={36} />
             <p className="mt-3 text-xs text-gray-400 max-w-xs leading-relaxed">
               4th Floor, JD Tower, Commerce Ave. cor. Acacia Ave., Madrigal
               Business Park, Ayala Alabang, Muntinlupa City
