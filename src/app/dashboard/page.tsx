@@ -177,10 +177,10 @@ export default function Dashboard() {
             </button>
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-full bg-[#E8B731]/20 flex items-center justify-center text-xs font-bold text-[#1A1A2E]">
-                TN
+                TE
               </div>
               <div className="hidden sm:block">
-                <p className="text-xs font-medium text-[#1A1A2E]">Teacher Nat</p>
+                <p className="text-xs font-medium text-[#1A1A2E]">Teacher Eliza</p>
                 <p className="text-[10px] text-gray-400">Admin</p>
               </div>
             </div>
@@ -212,7 +212,7 @@ function OverviewView() {
           className="text-2xl font-semibold text-[#1A1A2E]"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Welcome back, Teacher Nat 👋
+          Welcome back, Teacher Eliza 👋
         </h1>
         <p className="text-sm text-gray-500 mt-1">
           Here&apos;s what&apos;s happening at R.E.A.D. today.
@@ -255,10 +255,10 @@ function OverviewView() {
           </div>
           <div className="space-y-2">
             {[
-              { time: "9:00 AM", student: "Sofia Mendoza", program: "Reading Enhancement", therapist: "Teacher Nat", status: "confirmed" },
+              { time: "9:00 AM", student: "Sofia Mendoza", program: "Reading Enhancement", therapist: "Teacher Eliza", status: "confirmed" },
               { time: "10:30 AM", student: "Mateo Santos", program: "Executive Function", therapist: "Teacher Mia", status: "confirmed" },
               { time: "1:00 PM", student: "Isabella Cruz", program: "Speech Therapy", therapist: "Teacher Joy", status: "pending" },
-              { time: "3:00 PM", student: "Diego Reyes", program: "Academic Development", therapist: "Teacher Nat", status: "confirmed" },
+              { time: "3:00 PM", student: "Diego Reyes", program: "Academic Development", therapist: "Teacher Eliza", status: "confirmed" },
               { time: "4:30 PM", student: "Lucia Garcia", program: "Reading Assessment", therapist: "Teacher Mia", status: "confirmed" },
             ].map((session, i) => (
               <div key={i} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
@@ -360,12 +360,12 @@ function StudentsView() {
             </thead>
             <tbody>
               {[
-                { name: "Sofia Mendoza", age: 8, program: "Reading Enhancement", therapist: "Teacher Nat", level: "Grade 3.5", next: "Today, 9:00 AM", status: "Active", color: "#E8B731" },
+                { name: "Sofia Mendoza", age: 8, program: "Reading Enhancement", therapist: "Teacher Eliza", level: "Grade 3.5", next: "Today, 9:00 AM", status: "Active", color: "#E8B731" },
                 { name: "Mateo Santos", age: 10, program: "Executive Function", therapist: "Teacher Mia", level: "Grade 4.0", next: "Today, 10:30 AM", status: "Active", color: "#2E7AB8" },
                 { name: "Isabella Cruz", age: 6, program: "Speech Therapy", therapist: "Teacher Joy", level: "Grade 1.5", next: "Today, 1:00 PM", status: "Active", color: "#E84671" },
-                { name: "Diego Reyes", age: 12, program: "Academic Development", therapist: "Teacher Nat", level: "Grade 5.5", next: "Today, 3:00 PM", status: "Active", color: "#2BAA8E" },
+                { name: "Diego Reyes", age: 12, program: "Academic Development", therapist: "Teacher Eliza", level: "Grade 5.5", next: "Today, 3:00 PM", status: "Active", color: "#2BAA8E" },
                 { name: "Lucia Garcia", age: 7, program: "Reading Assessment", therapist: "Teacher Mia", level: "Pending", next: "Today, 4:30 PM", status: "New", color: "#C9A84C" },
-                { name: "Andres Tan", age: 9, program: "Reading Enhancement", therapist: "Teacher Nat", level: "Grade 3.0", next: "Tomorrow, 9:00 AM", status: "Active", color: "#E8B731" },
+                { name: "Andres Tan", age: 9, program: "Reading Enhancement", therapist: "Teacher Eliza", level: "Grade 3.0", next: "Tomorrow, 9:00 AM", status: "Active", color: "#E8B731" },
               ].map((s, i) => (
                 <tr key={i} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                   <td className="px-4 py-3.5">
@@ -784,7 +784,7 @@ function ParentPortalView() {
           {[
             { label: "Reading Level", value: "Grade 3.5", change: "+1.2 since Jan", color: "#2BAA8E" },
             { label: "Sessions Done", value: "24", change: "of 32 in package", color: "#E8B731" },
-            { label: "Next Session", value: "Mon 9AM", change: "with Teacher Nat", color: "#E84671" },
+            { label: "Next Session", value: "Mon 9AM", change: "with Teacher Eliza", color: "#E84671" },
           ].map((c) => (
             <div key={c.label} className="bg-white rounded-xl p-4 border border-gray-100">
               <p className="text-[10px] text-gray-400 mb-1">{c.label}</p>
@@ -825,8 +825,8 @@ function ParentPortalView() {
           <h3 className="text-sm font-semibold text-[#1A1A2E] mb-4">Recent Session Notes</h3>
           <div className="space-y-3">
             {[
-              { date: "May 5, 2026", note: "Sofia completed Phonics III with confidence. Showed strong improvement in vowel digraphs.", teacher: "Teacher Nat" },
-              { date: "May 2, 2026", note: "Worked on reading fluency. Read 'The Hungry Caterpillar' independently for the first time!", teacher: "Teacher Nat" },
+              { date: "May 5, 2026", note: "Sofia completed Phonics III with confidence. Showed strong improvement in vowel digraphs.", teacher: "Teacher Eliza" },
+              { date: "May 2, 2026", note: "Worked on reading fluency. Read 'The Hungry Caterpillar' independently for the first time!", teacher: "Teacher Eliza" },
               { date: "Apr 28, 2026", note: "Comprehension assessment: Sofia is now reading at Grade 3.5 level. Recommendation to continue current pace.", teacher: "Teacher Mia" },
             ].map((n, i) => (
               <div key={i} className="border-l-2 border-[#C9A84C]/30 pl-3 py-1">
