@@ -183,14 +183,15 @@ export default function AddOnsPage() {
                 A Philippine payment platform that unifies GCash, Maya, cards,
                 online banking, QR Ph, and BillEase into a single integration.
                 Send payment links via Messenger or WhatsApp &mdash; perfect
-                for how Alabang parents already inquire and pay. <strong className="text-[#1A1A2E]">Free
-                for the centre to use; parents pay a small convenience fee at
-                checkout.</strong>
+                for how Alabang parents already inquire and pay. <strong className="text-[#1A1A2E]">No
+                monthly subscription from SaligPay; parents pay a small
+                convenience fee at checkout. R.E.A.D. only pays a one-time
+                integration fee.</strong>
               </p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-2.5">
                 {[
-                  "Free signup &mdash; no monthly subscription",
+                  "No monthly subscription from SaligPay",
                   "70+ local banks &amp; e-wallets in one integration",
                   "Recurring billing for monthly class packages",
                   "Send payment links via Messenger, IG, WhatsApp",
@@ -247,11 +248,12 @@ export default function AddOnsPage() {
                 </p>
                 <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
                   <li>
-                    <strong className="text-[#1A1A2E] block mb-0.5">Free for the centre.</strong>
+                    <strong className="text-[#1A1A2E] block mb-0.5">No recurring cost.</strong>
                     <span className="text-xs text-gray-500">
-                      No monthly subscription. R.E.A.D. receives the full
-                      session price; parents pay a small convenience fee at
-                      checkout (already standard for online payments here).
+                      SaligPay charges no monthly subscription. R.E.A.D.
+                      receives the full session price; parents pay a small
+                      convenience fee at checkout (standard for online
+                      payments here). One-time integration fee on our side.
                     </span>
                   </li>
                   <li>

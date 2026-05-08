@@ -341,8 +341,8 @@ export function PaymentSection({
                 One unified payment platform that lets parents pay through
                 Messenger links, the website, or even Facebook chat.{" "}
                 <strong className="text-[#1A1A2E]">
-                  Free for the centre &mdash; parents pay a small convenience
-                  fee at checkout.
+                  No monthly subscription from SaligPay &mdash; parents pay
+                  a small convenience fee at checkout.
                 </strong>
               </p>
 
@@ -353,7 +353,7 @@ export function PaymentSection({
                 }`}
               >
                 {[
-                  "Free signup, no monthly subscription",
+                  "No monthly subscription from SaligPay",
                   "Accepts GCash, Maya, cards, online banking, QR Ph",
                   "Recurring billing for monthly class packages",
                   "Send payment links via Messenger or WhatsApp",

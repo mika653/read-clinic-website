@@ -442,7 +442,7 @@ export default function ProposalHome() {
                 "Students &amp; lesson library",
                 "Teacher tools (lesson plans, session notes)",
                 "Role-based access (Secretary, Teacher, Directress)",
-                "<strong>SaligPay payments</strong> (free for you, parents pay convenience fee)",
+                "<strong>SaligPay payments</strong> (no monthly fee, parents pay the convenience fee at checkout)",
                 "Recurring billing for monthly class packages",
                 "1 staff training session",
                 "60 days support",
@@ -599,7 +599,7 @@ export default function ProposalHome() {
               {
                 service: "SaligPay convenience fees",
                 cost: "Paid by parents",
-                detail: "Free signup. R.E.A.D. receives the full session price. Parents see a small fee at checkout (e.g. 2.5% on GCash).",
+                detail: "No signup fee, no monthly fee from SaligPay. R.E.A.D. receives the full session price; parents see a small convenience fee at checkout (e.g. 2.5% on GCash). Integration into the dashboard is included in your tier.",
                 tier: "Centre Plus & Full Suite",
                 tierColor: "#C9A84C",
               },
