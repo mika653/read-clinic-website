@@ -652,7 +652,7 @@ export default function ProposalHome() {
             const body = encodeURIComponent(
               `Hi Mika,\n\nWe'd like to proceed with the ${pkg.tier} package (${pkg.price}). Please send the short agreement and let's set a kickoff date.\n\nThanks,\nR.E.A.D. Centre`
             );
-            const mailto = `mailto:mika@example.com?subject=${subject}&body=${body}`;
+            const mailto = `mailto:mikatesalonadecastro@gmail.com?subject=${subject}&body=${body}`;
             return (
               <a
                 key={pkg.tier}
@@ -699,19 +699,9 @@ export default function ProposalHome() {
           <div className="space-y-3">
             {[
               {
-                channel: "Messenger",
-                handle: "m.me/your-username",
-                href: "https://m.me/your-username",
-                icon: (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0084FF">
-                    <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.34.27.55l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.16-.07.34-.08.51-.04.91.25 1.88.38 2.92.38 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2zm6 7.46l-2.93 4.65c-.47.74-1.47.93-2.17.4l-2.34-1.74a.6.6 0 00-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.93-4.65c.47-.74 1.47-.93 2.17-.4l2.34 1.74c.21.16.51.16.72 0l3.16-2.4c.42-.32.97.18.69.63z" />
-                  </svg>
-                ),
-              },
-              {
                 channel: "WhatsApp",
-                handle: "+63 9XX XXX XXXX",
-                href: "https://wa.me/639XXXXXXXXX?text=Hi%20Mika%2C%20we%27d%20like%20to%20proceed%20with%20the%20R.E.A.D.%20website%20proposal.",
+                handle: "+63 915 661 0901",
+                href: "https://wa.me/639156610901?text=Hi%20Mika%2C%20we%27d%20like%20to%20proceed%20with%20the%20R.E.A.D.%20website%20proposal.",
                 icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 2.981 1.287 2.981.858 3.518.804.537-.054 1.758-.718 2.006-1.413.247-.694.247-1.289.173-1.413-.075-.124-.272-.198-.57-.347zM12.05 22a9.84 9.84 0 01-5.026-1.378l-.36-.214-3.741.982.998-3.648-.235-.374A9.86 9.86 0 012.16 12.05c0-5.45 4.434-9.882 9.89-9.882a9.82 9.82 0 016.989 2.898 9.825 9.825 0 012.892 6.994c-.003 5.45-4.437 9.94-9.89 9.94zm8.412-18.295A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
@@ -720,8 +710,8 @@ export default function ProposalHome() {
               },
               {
                 channel: "Email",
-                handle: "mika@example.com",
-                href: "mailto:mika@example.com?subject=R.E.A.D.%20Centre%20%E2%80%94%20Website%20Proposal",
+                handle: "mikatesalonadecastro@gmail.com",
+                href: "mailto:mikatesalonadecastro@gmail.com?subject=R.E.A.D.%20Centre%20%E2%80%94%20Website%20Proposal",
                 icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />

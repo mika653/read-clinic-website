@@ -106,10 +106,10 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               </div>
             </div>
             <div className="flex-1">
-              <div className="aspect-[3/4] max-h-[500px] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src="/hero-banner.jpg"
-                  alt="READ Clinic"
+                  alt="R.E.A.D. Centre"
                   className="w-full h-full object-cover grayscale-[20%]"
                 />
               </div>
