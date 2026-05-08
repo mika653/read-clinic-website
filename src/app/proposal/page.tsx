@@ -537,12 +537,116 @@ export default function ProposalHome() {
           </div>
           <div className="rounded-2xl border border-gray-100 p-5 bg-[#FFF9F0]">
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#C9A84C] mb-2">
-              What&apos;s Not Included
+              Third-Party Services Used
             </p>
             <p className="text-sm text-gray-600 leading-relaxed font-light">
-              Domain registration (~₱600/year), Vercel hosting (free tier
-              should suffice for a year), and SaligPay transaction fees
-              (per-transaction, no monthly minimum).
+              The dashboard runs on Supabase (database &amp; auth) and Vercel
+              (hosting). Most services have generous free tiers that fit
+              R.E.A.D.&apos;s scale. See the breakdown below for full
+              transparency.
+            </p>
+          </div>
+        </div>
+
+        {/* Infrastructure cost disclosure */}
+        <div className="mt-6 rounded-2xl border border-gray-100 p-6 sm:p-7">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-1">
+            Ongoing Infrastructure &mdash; Honest Breakdown
+          </p>
+          <p className="text-xs text-gray-500 mb-5 max-w-2xl leading-relaxed">
+            These are services we plug into during the build. Most fit
+            comfortably in their free tiers at R.E.A.D.&apos;s starting scale.
+            We&apos;re listing them all so there are no surprises a year in.
+          </p>
+
+          <div className="space-y-3">
+            {[
+              {
+                service: "Domain name",
+                cost: "~₱600/year",
+                detail: "e.g. readcentre.ph via Namecheap or local registrar",
+                tier: "All tiers",
+                tierColor: "#9CA3AF",
+              },
+              {
+                service: "Vercel hosting",
+                cost: "Free",
+                detail: "Free tier handles years of normal traffic. Upgrade only if you spike past 100GB bandwidth/month.",
+                tier: "All tiers",
+                tierColor: "#9CA3AF",
+              },
+              {
+                service: "Supabase (database & auth)",
+                cost: "Free → ~₱1,400/mo if exceeded",
+                detail: "Free tier covers ~500 active students, 50K monthly logins, 500MB data. Pro plan at $25/mo (~₱1,400) only if you outgrow it.",
+                tier: "Centre Plus & Full Suite",
+                tierColor: "#C9A84C",
+              },
+              {
+                service: "Resend (email reminders)",
+                cost: "Free",
+                detail: "3,000 emails/month free — plenty for inquiry confirmations, parent updates, and reminders.",
+                tier: "Centre Plus & Full Suite",
+                tierColor: "#C9A84C",
+              },
+              {
+                service: "Semaphore (SMS reminders)",
+                cost: "~₱0.50 per SMS",
+                detail: "At ~400 reminders/month, expect ~₱200/mo. Optional — turn off any time. Pay-as-you-go top-ups.",
+                tier: "Full Suite only",
+                tierColor: "#1A1A2E",
+              },
+              {
+                service: "SaligPay convenience fees",
+                cost: "Paid by parents",
+                detail: "Free signup. R.E.A.D. receives the full session price. Parents see a small fee at checkout (e.g. 2.5% on GCash).",
+                tier: "Centre Plus & Full Suite",
+                tierColor: "#C9A84C",
+              },
+              {
+                service: "Google Reviews & FB feed",
+                cost: "Free",
+                detail: "Both have free APIs / embed widgets. No usage fees.",
+                tier: "Full Suite only",
+                tierColor: "#1A1A2E",
+              },
+            ].map((row, i) => (
+              <div
+                key={i}
+                className="grid sm:grid-cols-12 gap-3 py-3 border-b border-gray-50 last:border-0"
+              >
+                <div className="sm:col-span-3">
+                  <p className="text-sm font-medium text-[#1A1A2E]">{row.service}</p>
+                  <span
+                    className="inline-block mt-1 text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded"
+                    style={{
+                      backgroundColor: `${row.tierColor}15`,
+                      color: row.tierColor,
+                    }}
+                  >
+                    {row.tier}
+                  </span>
+                </div>
+                <div className="sm:col-span-3">
+                  <p className="text-sm font-semibold text-[#1A1A2E]">{row.cost}</p>
+                </div>
+                <div className="sm:col-span-6">
+                  <p className="text-xs text-gray-500 leading-relaxed">{row.detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5 pt-5 border-t border-gray-100 flex items-start gap-3">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2BAA8E" strokeWidth="2" className="flex-shrink-0 mt-0.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+            <p className="text-xs text-gray-500 leading-relaxed max-w-2xl">
+              <strong className="text-[#1A1A2E]">Realistic year-1 ongoing cost</strong> for Centre Plus:
+              roughly <strong className="text-[#1A1A2E]">₱600 (domain only)</strong>.
+              For Full Suite with active SMS reminders: <strong className="text-[#1A1A2E]">~₱2,400-3,000/year</strong> (domain + SMS).
+              Supabase typically stays free for years.
             </p>
           </div>
         </div>
