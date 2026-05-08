@@ -184,9 +184,8 @@ export default function AddOnsPage() {
                 online banking, QR Ph, and BillEase into a single integration.
                 Send payment links via Messenger or WhatsApp &mdash; perfect
                 for how Alabang parents already inquire and pay. <strong className="text-[#1A1A2E]">No
-                monthly subscription from SaligPay; parents pay a small
-                convenience fee at checkout. R.E.A.D. only pays a one-time
-                integration fee.</strong>
+                monthly subscription. Per-transaction fees are deducted from
+                each payment (standard across PH payment gateways).</strong>
               </p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-2.5">
@@ -214,13 +213,13 @@ export default function AddOnsPage() {
 
               <div className="mt-6 pt-5 border-t border-gray-200">
                 <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                  Convenience Fees Per Transaction
+                  Per-Transaction Fees (deducted from settlement)
                 </p>
                 <p className="text-xs text-gray-500 leading-relaxed mb-3">
-                  Parents see these as small fees added at checkout (similar
-                  to how they&apos;re used to paying when buying load or
-                  shopping online). The centre receives the full session
-                  amount.
+                  When a parent pays ₱2,000 via GCash, SaligPay deducts ₱50
+                  (2.5%) and the centre receives ₱1,950. Most learning centres
+                  absorb this as the cost of digital convenience; you can also
+                  add a small service fee on session prices to recover it.
                 </p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gray-600">
                   <span><strong className="text-[#1A1A2E]">2.0%</strong> Maya</span>
@@ -248,12 +247,12 @@ export default function AddOnsPage() {
                 </p>
                 <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
                   <li>
-                    <strong className="text-[#1A1A2E] block mb-0.5">No recurring cost.</strong>
+                    <strong className="text-[#1A1A2E] block mb-0.5">No recurring fee.</strong>
                     <span className="text-xs text-gray-500">
-                      SaligPay charges no monthly subscription. R.E.A.D.
-                      receives the full session price; parents pay a small
-                      convenience fee at checkout (standard for online
-                      payments here). One-time integration fee on our side.
+                      SaligPay charges no monthly subscription &mdash; just
+                      per-transaction fees deducted from each settlement
+                      (same model as PayMongo, Stripe, etc.). One-time
+                      integration fee on our side.
                     </span>
                   </li>
                   <li>

@@ -341,8 +341,8 @@ export function PaymentSection({
                 One unified payment platform that lets parents pay through
                 Messenger links, the website, or even Facebook chat.{" "}
                 <strong className="text-[#1A1A2E]">
-                  No monthly subscription from SaligPay &mdash; parents pay
-                  a small convenience fee at checkout.
+                  No monthly subscription. Per-transaction fees deducted
+                  from settlement (standard for PH payment gateways).
                 </strong>
               </p>
 
@@ -393,7 +393,7 @@ export function PaymentSection({
               {/* Fee transparency */}
               <div className="mt-5 pt-5 border-t border-gray-100">
                 <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                  Convenience Fees (paid by parent at checkout)
+                  Per-Transaction Fees (deducted from settlement)
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
                   <span>
@@ -413,8 +413,9 @@ export function PaymentSection({
                   </span>
                 </div>
                 <p className="text-[10px] text-gray-300 mt-2">
-                  Centre pays nothing monthly. Parents see a small fee added
-                  at checkout (standard for online payments here).
+                  No monthly fee. Each transaction&apos;s percentage is
+                  deducted from settlement &mdash; e.g. ₱50 on a ₱2,000
+                  GCash payment.
                 </p>
               </div>
 
