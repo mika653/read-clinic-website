@@ -1,8 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Device = "mobile" | "tablet" | "desktop";
+
+function useEmbedMode(): { isEmbed: boolean; embedDevice: Device } {
+  const [state, setState] = useState<{ isEmbed: boolean; embedDevice: Device }>({
+    isEmbed: false,
+    embedDevice: "desktop",
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const isEmbed = params.get("embed") === "1";
+
+    const detectDevice = (): Device => {
+      const w = window.innerWidth;
+      if (w <= 480) return "mobile";
+      if (w <= 900) return "tablet";
+      return "desktop";
+    };
+
+    setState({ isEmbed, embedDevice: detectDevice() });
+
+    const onResize = () => {
+      setState((prev) => ({ ...prev, embedDevice: detectDevice() }));
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return state;
+}
 
 const deviceConfig = {
   mobile: { width: 375, height: 812, label: "iPhone 14", icon: PhoneIcon },
@@ -78,6 +108,13 @@ export default function DeviceSwitcher({
 }) {
   const [device, setDevice] = useState<Device>("mobile");
   const config = deviceConfig[device];
+  const { isEmbed, embedDevice } = useEmbedMode();
+
+  // When embedded inside the home page iframe, render content directly
+  // without the device frame chrome. Use the detected viewport device.
+  if (isEmbed) {
+    return <div className="w-full min-h-screen">{children(embedDevice)}</div>;
+  }
 
   return (
     <div className="min-h-screen bg-[#f8f9fb] flex flex-col">

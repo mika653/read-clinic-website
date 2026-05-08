@@ -304,40 +304,202 @@ export function PaymentSection({
           deposits — pay securely from your phone.
         </p>
 
-        <div className={`mt-8 grid gap-4 ${isMobile ? "grid-cols-1" : "grid-cols-3"}`}>
+        {/* Featured: SaligPay add-on */}
+        <div
+          className={`mt-8 rounded-2xl overflow-hidden border-2 ${isMobile ? "p-6" : "p-7"}`}
+          style={{
+            backgroundColor: "#FFFFFF",
+            borderColor: accents[variant],
+          }}
+        >
+          <div className={`${!isMobile ? "flex items-start gap-6" : ""}`}>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-3 flex-wrap">
+                <span
+                  className="text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded-full text-white"
+                  style={{ backgroundColor: accents[variant] }}
+                >
+                  Recommended Add-On
+                </span>
+                <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
+                  Made for Filipino Businesses
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 mb-2">
+                <span
+                  className={`font-bold text-[#1A1A2E] ${isMobile ? "text-xl" : "text-2xl"}`}
+                  style={{ fontFamily: fonts[variant] }}
+                >
+                  SaligPay
+                </span>
+                <span className="text-xs italic text-gray-400">
+                  &mdash; Kasalig Mo Sa Negosyo
+                </span>
+              </div>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                One unified payment platform that lets parents pay through
+                Messenger links, the website, or even Facebook chat. Built
+                specifically for Philippine businesses like R.E.A.D. Center.
+              </p>
+
+              {/* Feature list */}
+              <div
+                className={`mt-5 grid gap-2.5 ${
+                  isMobile ? "grid-cols-1" : "grid-cols-2"
+                }`}
+              >
+                {[
+                  "Accepts GCash, Maya, cards, online banking, QR Ph, BillEase",
+                  "Recurring billing for monthly therapy packages",
+                  "Send payment links via Messenger or WhatsApp",
+                  "Automated invoicing & payment reminders",
+                  "PCI DSS compliant with fraud protection",
+                  "Same-day or next-day payout settlement",
+                ].map((feature, i) => (
+                  <div key={i} className="flex items-start gap-2">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      className="mt-0.5 flex-shrink-0"
+                    >
+                      <circle
+                        cx="8"
+                        cy="8"
+                        r="8"
+                        fill={accents[variant]}
+                        fillOpacity="0.12"
+                      />
+                      <path
+                        d="M5 8L7 10L11 6"
+                        stroke={accents[variant]}
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    <span className="text-xs text-gray-600 leading-snug">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Fee transparency */}
+              <div className="mt-5 pt-5 border-t border-gray-100">
+                <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
+                  Transparent Fees
+                </p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+                  <span>
+                    <strong className="text-[#1A1A2E]">2.0%</strong> Maya
+                  </span>
+                  <span className="text-gray-200">|</span>
+                  <span>
+                    <strong className="text-[#1A1A2E]">2.5%</strong> GCash
+                  </span>
+                  <span className="text-gray-200">|</span>
+                  <span>
+                    <strong className="text-[#1A1A2E]">1.5%</strong> QR Ph
+                  </span>
+                  <span className="text-gray-200">|</span>
+                  <span>
+                    <strong className="text-[#1A1A2E]">3.5% + ₱15</strong> Cards
+                  </span>
+                </div>
+                <p className="text-[10px] text-gray-300 mt-2">
+                  No monthly fees. No setup costs.
+                </p>
+              </div>
+
+              <button
+                className="mt-5 px-6 py-3 rounded-xl text-white text-sm font-medium cursor-pointer transition-all hover:shadow-md"
+                style={{ backgroundColor: accents[variant] }}
+              >
+                Enable SaligPay Integration
+              </button>
+            </div>
+
+            {/* Mock payment link preview */}
+            {!isMobile && (
+              <div className="w-64 flex-shrink-0">
+                <div className="rounded-xl border border-gray-100 p-4 bg-gray-50">
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                    Payment Link Preview
+                  </p>
+                  <div className="bg-white rounded-lg p-3 border border-gray-100">
+                    <p className="text-[10px] text-gray-400">R.E.A.D. Center</p>
+                    <p className="text-sm font-semibold text-[#1A1A2E] mt-0.5">
+                      Reading Assessment
+                    </p>
+                    <p
+                      className={`mt-2 text-xl font-bold`}
+                      style={{ fontFamily: fonts[variant] }}
+                    >
+                      ₱3,500.00
+                    </p>
+                    <div className="mt-3 space-y-1.5">
+                      {["GCash", "Maya", "QR Ph", "Card"].map((m) => (
+                        <div
+                          key={m}
+                          className="flex items-center justify-between px-2.5 py-1.5 rounded bg-gray-50 text-[10px] text-gray-500"
+                        >
+                          <span>{m}</span>
+                          <svg
+                            width="10"
+                            height="10"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
+                            <path d="M9 18l6-6-6-6" />
+                          </svg>
+                        </div>
+                      ))}
+                    </div>
+                    <button
+                      className="w-full mt-3 py-2 rounded text-white text-[10px] font-semibold"
+                      style={{ backgroundColor: accents[variant] }}
+                    >
+                      Pay Securely
+                    </button>
+                    <p className="text-[8px] text-gray-300 text-center mt-1.5">
+                      Powered by SaligPay
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Supported methods strip */}
+        <p className="mt-6 text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
+          All Accepted Through SaligPay
+        </p>
+        <div className="flex flex-wrap gap-2">
           {[
-            {
-              name: "GCash",
-              color: "#0070E0",
-              desc: "Philippines' #1 e-wallet",
-            },
-            {
-              name: "Maya",
-              color: "#00B140",
-              desc: "Fast & secure digital payments",
-            },
-            {
-              name: "Card / Bank",
-              color: "#1A1A2E",
-              desc: "Visa, Mastercard, or bank transfer",
-            },
-          ].map((method, i) => (
+            { name: "GCash", color: "#0070E0" },
+            { name: "Maya", color: "#00B140" },
+            { name: "QR Ph", color: "#E94B3C" },
+            { name: "Visa", color: "#1A1F71" },
+            { name: "Mastercard", color: "#EB001B" },
+            { name: "BPI", color: "#A52125" },
+            { name: "UnionBank", color: "#F58220" },
+            { name: "BillEase", color: "#7C3AED" },
+          ].map((m) => (
             <div
-              key={i}
-              className="bg-white rounded-xl border border-gray-100 p-5 flex items-center gap-4 cursor-pointer hover:shadow-md transition-shadow"
+              key={m.name}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-gray-100 text-xs text-gray-600"
             >
               <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center text-white text-xs font-bold"
-                style={{ backgroundColor: method.color }}
-              >
-                {method.name[0]}
-              </div>
-              <div>
-                <p className="text-sm font-medium text-[#1A1A2E]">
-                  {method.name}
-                </p>
-                <p className="text-xs text-gray-400">{method.desc}</p>
-              </div>
+                className="w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: m.color }}
+              />
+              {m.name}
             </div>
           ))}
         </div>

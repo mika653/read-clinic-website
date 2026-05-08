@@ -1,267 +1,147 @@
 "use client";
 
-import Link from "next/link";
+import { useState } from "react";
+import {
+  FileText,
+  Layers,
+  Sparkles,
+  Zap,
+  Monitor,
+  Tablet,
+  Smartphone,
+  Plug,
+  LayoutDashboard,
+} from "lucide-react";
 
-function ReadLogo({ size = 40 }: { size?: number }) {
-  return (
-    <img
-      src="/logo.jpg"
-      alt="R.E.A.D. Center"
-      style={{ height: `${size}px`, width: "auto" }}
-      className="object-contain"
-    />
-  );
-}
-
-const mockups = [
-  {
-    number: 1,
-    name: "Warm Elegant",
-    tagline: "Serif typography, gold accents, warm cream tones",
-    href: "/concept-1",
-    gradient: "linear-gradient(135deg, #FFF9F0 0%, #F5EDE0 100%)",
-    accent: "#C9A84C",
-    integrations: ["Online Booking", "Parent Portal", "GCash / Maya"],
-  },
-  {
-    number: 2,
-    name: "Modern Playful",
-    tagline: "Vibrant gradients, rounded elements, bold brand colors",
-    href: "/concept-2",
-    gradient: "linear-gradient(135deg, #FFF0F3 0%, #FFE8ED 100%)",
-    accent: "#E84671",
-    integrations: ["WhatsApp Chat", "Assessment Forms", "FB Feed"],
-  },
-  {
-    number: 3,
-    name: "Minimalist Editorial",
-    tagline: "High-contrast editorial with generous whitespace",
-    href: "/concept-3",
-    gradient: "linear-gradient(135deg, #FAFAF8 0%, #F5F5F0 100%)",
-    accent: "#1A1A2E",
-    integrations: ["Calendly Scheduling", "Progress Dashboard", "Google Reviews"],
-  },
+const tabs = [
+  { slug: "proposal", label: "Proposal", icon: <FileText size={15} />, accent: "#1A1A2E" },
+  { slug: "concept-1", label: "Concept 1 — Warm Elegant", icon: <Layers size={15} />, accent: "#C9A84C" },
+  { slug: "concept-2", label: "Concept 2 — Modern Playful", icon: <Zap size={15} />, accent: "#E84671" },
+  { slug: "concept-3", label: "Concept 3 — Minimalist Editorial", icon: <Sparkles size={15} />, accent: "#1A1A2E" },
+  { slug: "add-ons", label: "Add-Ons", icon: <Plug size={15} />, accent: "#2BAA8E" },
+  { slug: "dashboard", label: "Dashboard", icon: <LayoutDashboard size={15} />, accent: "#2E7AB8" },
 ];
 
-export default function Home() {
+const devices = [
+  { key: "mobile", label: "Mobile", icon: <Smartphone size={15} />, width: 390 },
+  { key: "tablet", label: "Tablet", icon: <Tablet size={15} />, width: 820 },
+  { key: "desktop", label: "Desktop", icon: <Monitor size={15} />, width: "100%" as const },
+] as const;
+
+export default function Preview() {
+  const [activeTab, setActiveTab] = useState(0);
+  const [activeDevice, setActiveDevice] = useState(2);
+
+  const tab = tabs[activeTab];
+  const device = devices[activeDevice];
+  const w = device.width;
+
+  // Add embed=1 to hide internal device switchers and chrome
+  const iframeSrc = `/${tab.slug}?embed=1`;
+
   return (
-    <div
-      className="min-h-screen bg-white"
-      style={{ fontFamily: "'Inter', sans-serif" }}
-    >
-      {/* Minimal header */}
-      <header className="px-6 sm:px-10 pt-10 pb-8">
-        <ReadLogo size={52} />
-        <p className="mt-1 text-xs tracking-[0.15em] text-gray-400 uppercase">
-          Reading Enhancement &amp; Academic Development
-        </p>
-      </header>
-
-      {/* Simple intro */}
-      <section className="px-6 sm:px-10 pb-10 max-w-3xl">
-        <h1
-          className="text-3xl sm:text-4xl font-semibold leading-tight text-[#1A1A2E]"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Website Mockups
-        </h1>
-        <p className="mt-3 text-sm text-gray-400 leading-relaxed">
-          Three design directions — each includes suggested integrations to
-          streamline bookings, parent communication, and daily operations.
-          Switch between mobile, tablet, and desktop views.
-        </p>
-      </section>
-
-      {/* Mockup cards */}
-      <section className="px-6 sm:px-10 pb-16">
-        <div className="grid gap-6 md:grid-cols-3 max-w-6xl">
-          {mockups.map((m) => (
-            <Link
-              key={m.number}
-              href={m.href}
-              className="group block rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 cursor-pointer"
+    <div className="h-screen flex flex-col bg-neutral-100 overflow-hidden">
+      {/* Top bar */}
+      <header className="bg-white border-b border-neutral-200 px-4 py-2.5 flex items-center justify-between shrink-0 gap-3">
+        <div className="flex items-center gap-3 min-w-0">
+          <img src="/logo.jpg" alt="R.E.A.D." className="h-8 w-auto object-contain shrink-0" />
+          <div className="hidden md:block min-w-0">
+            <div
+              className="text-sm font-bold text-neutral-900 truncate tracking-wide"
+              style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              {/* Preview */}
-              <div
-                className="h-44 sm:h-52 relative overflow-hidden flex items-center justify-center"
-                style={{ background: m.gradient }}
-              >
-                {/* Mini phone mockup */}
-                <div className="w-[100px] h-[175px] bg-white rounded-xl shadow-lg overflow-hidden relative group-hover:scale-105 transition-transform duration-300">
-                  <div
-                    className="absolute top-0 left-1/2 -translate-x-1/2 w-10 h-2.5 rounded-b-lg"
-                    style={{ backgroundColor: m.accent }}
-                  />
-                  <div className="pt-5 px-2.5 space-y-1.5">
-                    <div
-                      className="h-1.5 w-7 rounded-full"
-                      style={{ backgroundColor: m.accent, opacity: 0.5 }}
-                    />
-                    <div className="h-1 w-14 rounded-full bg-gray-200" />
-                    <div className="h-1 w-10 rounded-full bg-gray-100" />
-                    <div className="mt-2 h-6 rounded" style={{ backgroundColor: `${m.accent}12` }} />
-                    <div className="h-6 rounded" style={{ backgroundColor: `${m.accent}08` }} />
-                    <div className="mt-2 h-4 rounded" style={{ backgroundColor: m.accent }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="p-5">
-                <h3
-                  className="text-lg font-semibold text-[#1A1A2E] mb-1"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  {m.name}
-                </h3>
-                <p className="text-xs text-gray-400 mb-4">{m.tagline}</p>
-
-                {/* Integration badges */}
-                <div className="flex flex-wrap gap-1.5">
-                  {m.integrations.map((integration) => (
-                    <span
-                      key={integration}
-                      className="text-[10px] font-medium px-2 py-1 rounded-full"
-                      style={{
-                        color: m.accent,
-                        backgroundColor: `${m.accent}10`,
-                      }}
-                    >
-                      {integration}
-                    </span>
-                  ))}
-                </div>
-
-                <div
-                  className="mt-4 flex items-center gap-1.5 text-xs font-medium group-hover:gap-2.5 transition-all"
-                  style={{ color: m.accent }}
-                >
-                  Preview
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Suggested Integrations Overview */}
-      <section className="px-6 sm:px-10 pb-16">
-        <div className="max-w-6xl">
-          <h2
-            className="text-xl font-semibold text-[#1A1A2E] mb-6"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Suggested Integrations
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-            {[
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B731" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                  </svg>
-                ),
-                title: "Online Booking",
-                desc: "Calendly or Cal.com for 24/7 appointment scheduling. Parents can book assessments and sessions without calling.",
-                impact: "Saves 2-3 hrs/day on phone bookings",
-              },
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2BAA8E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                  </svg>
-                ),
-                title: "WhatsApp / Viber Chat",
-                desc: "Floating chat button for instant parent inquiries. Most Alabang parents prefer messaging over calling.",
-                impact: "Faster response, higher conversion",
-              },
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E84671" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="8.5" cy="7" r="4" />
-                    <polyline points="17 11 19 13 23 9" />
-                  </svg>
-                ),
-                title: "Parent Portal",
-                desc: "Secure login for parents to view progress reports, session schedules, and developmental milestones.",
-                impact: "Fewer update calls, happier parents",
-              },
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7AB8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-                    <line x1="1" y1="10" x2="23" y2="10" />
-                  </svg>
-                ),
-                title: "GCash / Maya Payments",
-                desc: "Online payment for sessions and packages. GCash and Maya are the most used e-wallets in the Philippines.",
-                impact: "No more bank deposits or cash-only",
-              },
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                  </svg>
-                ),
-                title: "Digital Intake Forms",
-                desc: "Online assessment questionnaires that parents complete before their first visit. Data flows directly to your records.",
-                impact: "Paperless intake, faster first sessions",
-              },
-              {
-                icon: (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8B731" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                ),
-                title: "Google Reviews Widget",
-                desc: "Embed real Google reviews on the website. Social proof is the #1 factor for Alabang parents choosing a clinic.",
-                impact: "Builds trust, drives new inquiries",
-              },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-gray-100 p-5 hover:shadow-md transition-shadow"
-              >
-                <div className="mb-3">{item.icon}</div>
-                <h3 className="text-sm font-semibold text-[#1A1A2E] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-gray-400 leading-relaxed mb-3">
-                  {item.desc}
-                </p>
-                <p className="text-[10px] font-medium text-[#2BAA8E] uppercase tracking-wide">
-                  {item.impact}
-                </p>
-              </div>
-            ))}
+              R.E.A.D. CENTER
+            </div>
+            <div className="text-[10px] uppercase tracking-[0.14em] text-neutral-500 truncate">
+              Proposal &amp; Mockups
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Minimal footer */}
-      <footer className="px-6 sm:px-10 py-6 border-t border-gray-50">
-        <div className="flex items-center justify-between text-xs text-gray-300">
-          <ReadLogo size={28} />
-          <span>readclinicph@gmail.com</span>
+        {/* Tabs */}
+        <div className="flex items-center bg-neutral-100 rounded-lg p-1 gap-0.5 overflow-x-auto no-scrollbar">
+          {tabs.map((t, i) => (
+            <button
+              key={t.slug}
+              onClick={() => setActiveTab(i)}
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                activeTab === i
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-700"
+              }`}
+            >
+              {t.icon}
+              <span className="hidden lg:inline">{t.label}</span>
+              <span className="lg:hidden">
+                {i === 0 ? "Proposal" : i === 4 ? "Add-Ons" : i === 5 ? "Dash" : `C${i}`}
+              </span>
+            </button>
+          ))}
         </div>
-      </footer>
+
+        {/* Device switcher */}
+        <div className="hidden sm:flex items-center bg-neutral-100 rounded-lg p-1 gap-0.5 shrink-0">
+          {devices.map((d, i) => (
+            <button
+              key={d.key}
+              onClick={() => setActiveDevice(i)}
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-200 cursor-pointer ${
+                activeDevice === i
+                  ? "bg-white text-neutral-900 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-700"
+              }`}
+              title={d.label}
+            >
+              {d.icon}
+              <span className="hidden xl:inline">{d.label}</span>
+            </button>
+          ))}
+        </div>
+      </header>
+
+      {/* Info strip */}
+      <div className="bg-white border-b border-neutral-200 px-4 py-1.5 flex items-center justify-between shrink-0">
+        <div className="flex items-center gap-2 min-w-0">
+          <span
+            className="w-2.5 h-2.5 rounded-full shrink-0"
+            style={{ backgroundColor: tab.accent }}
+          />
+          <span className="text-xs text-neutral-700 font-medium truncate">
+            {tab.label}
+          </span>
+          <span className="text-xs text-neutral-400 hidden sm:inline">
+            &middot; {device.label}
+            {typeof w === "number" && ` (${w}px)`}
+          </span>
+        </div>
+        <a
+          href={`/${tab.slug}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs text-neutral-400 hover:text-neutral-700 transition-colors shrink-0"
+        >
+          Open in new tab &rarr;
+        </a>
+      </div>
+
+      {/* Preview */}
+      <div className="flex-1 flex items-start justify-center overflow-auto p-4">
+        <div
+          className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out h-full"
+          style={{
+            width: typeof w === "number" ? `${w}px` : "100%",
+            maxWidth: "100%",
+            border: `2px solid ${tab.accent}25`,
+          }}
+        >
+          <iframe
+            key={`${tab.slug}-${device.key}`}
+            src={iframeSrc}
+            className="w-full h-full border-0"
+            title={`${tab.label} — ${device.label}`}
+          />
+        </div>
+      </div>
     </div>
   );
 }
