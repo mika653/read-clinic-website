@@ -324,7 +324,7 @@ function WarmElegantDesign({ device }: { device: string }) {
               age: "Ages 3-5",
               color: "#E8B731",
               bg: "#FFF8E7",
-              features: ["Phonics & letter recognition", "Pre-writing readiness", "Speech-language screening"],
+              features: ["Phonics & letter recognition", "Pre-writing readiness", "Pre-reading skills"],
             },
             {
               name: "Reading Enhancement",

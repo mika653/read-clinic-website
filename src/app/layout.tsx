@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "R.E.A.D. Center | Reading Enhancement & Academic Development",
   description:
-    "Reading Enhancement and Academic Development center in Ayala Alabang, Muntinlupa City. Nurturing Minds, Shaping Futures through expert-guided literacy programs, educational therapy, and developmental support.",
+    "Reading Enhancement and Academic Development centre in Ayala Alabang, Muntinlupa City. Nurturing Minds, Shaping Futures through expert-guided literacy programs and academic enrichment.",
 };
 
 export default function RootLayout({

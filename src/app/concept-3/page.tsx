@@ -269,7 +269,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               {
                 name: "Early Learners",
                 age: "Ages 3\u20135",
-                desc: "Pre-reading foundations through structured phonics, sensory play, and speech-language screening.",
+                desc: "Pre-reading foundations through structured phonics, sensory play, and story-time engagement.",
                 color: "#E8B731",
               },
               {

@@ -44,7 +44,7 @@ const addOns = [
     price: "₱8,500",
     unit: "/one-time",
     color: "#E84671",
-    body: "Calendly-style booking flow integrated into the website. Parents book assessments, therapy sessions, or consultations 24/7 — synced to your team's calendar.",
+    body: "Calendly-style booking flow integrated into the website. Parents book assessments, reading classes, or consultations 24/7 — synced to your team's calendar.",
     features: [
       "Service-based scheduling",
       "Auto email + SMS reminders",
@@ -63,7 +63,7 @@ const addOns = [
       "Per-child dashboards",
       "Progress reports & timelines",
       "Document downloads",
-      "Therapist messaging",
+      "Educator messaging",
     ],
   },
   {
@@ -190,7 +190,7 @@ export default function AddOnsPage() {
               <div className="mt-6 grid sm:grid-cols-2 gap-2.5">
                 {[
                   "70+ local banks &amp; e-wallets in one integration",
-                  "Recurring billing for monthly therapy packages",
+                  "Recurring billing for monthly class packages",
                   "Send payment links via Messenger, IG, WhatsApp",
                   "Automated invoicing with payment reminders",
                   "PCI DSS compliant with fraud protection",
@@ -246,7 +246,7 @@ export default function AddOnsPage() {
                     </span>
                   </li>
                   <li>
-                    <strong className="text-[#1A1A2E] block mb-0.5">Monthly therapy packages.</strong>
+                    <strong className="text-[#1A1A2E] block mb-0.5">Monthly class packages.</strong>
                     <span className="text-xs text-gray-500">
                       Auto-charge parents on the same date each month. Set it
                       and forget it.

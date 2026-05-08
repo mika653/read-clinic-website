@@ -87,7 +87,7 @@ export function BookingWidget({
               className="mt-2 text-sm text-gray-500 leading-relaxed"
               style={{ fontFamily: s.bodyFont }}
             >
-              No need to call — schedule assessments, therapy sessions, or
+              No need to call — schedule assessments, reading classes, or
               consultations online. Pick a time that works for your family.
             </p>
           </div>
@@ -99,7 +99,7 @@ export function BookingWidget({
                 Select a Service
               </p>
               <div className="space-y-2">
-                {["Free Consultation", "Reading Assessment", "Therapy Session"].map(
+                {["Free Consultation", "Reading Assessment", "Reading Class"].map(
                   (service, i) => (
                     <div
                       key={i}
@@ -351,7 +351,7 @@ export function PaymentSection({
               >
                 {[
                   "Accepts GCash, Maya, cards, online banking, QR Ph, BillEase",
-                  "Recurring billing for monthly therapy packages",
+                  "Recurring billing for monthly class packages",
                   "Send payment links via Messenger or WhatsApp",
                   "Automated invoicing & payment reminders",
                   "PCI DSS compliant with fraud protection",

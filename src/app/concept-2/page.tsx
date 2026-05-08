@@ -295,7 +295,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               name: "Early Learners",
               age: "3-5 years",
               desc: "Building pre-reading foundations through structured phonics, sensory play, and guided story exploration.",
-              features: ["Phonics & letter recognition", "Pre-writing & fine motor skills", "Speech-language screening"],
+              features: ["Phonics & letter recognition", "Pre-writing & fine motor skills", "Story-time engagement"],
             },
             {
               emoji_alt: "Star",

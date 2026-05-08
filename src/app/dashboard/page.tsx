@@ -345,18 +345,18 @@ function OverviewView({ role }: { role: Role }) {
           </div>
           <div className="space-y-2">
             {[
-              { time: "9:00 AM", student: "Sofia Mendoza", program: "Reading Enhancement", therapist: "Teacher Eliza", status: "confirmed" },
-              { time: "10:30 AM", student: "Mateo Santos", program: "Executive Function", therapist: "Teacher Mia", status: "confirmed" },
-              { time: "1:00 PM", student: "Isabella Cruz", program: "Speech Therapy", therapist: "Teacher Joy", status: "pending" },
-              { time: "3:00 PM", student: "Diego Reyes", program: "Academic Development", therapist: "Teacher Eliza", status: "confirmed" },
-              { time: "4:30 PM", student: "Lucia Garcia", program: "Reading Assessment", therapist: "Teacher Mia", status: "confirmed" },
+              { time: "9:00 AM", student: "Sofia Mendoza", program: "Reading Enhancement", educator: "Teacher Eliza", status: "confirmed" },
+              { time: "10:30 AM", student: "Mateo Santos", program: "Executive Function", educator: "Teacher Mia", status: "confirmed" },
+              { time: "1:00 PM", student: "Isabella Cruz", program: "Early Learners", educator: "Teacher Joy", status: "pending" },
+              { time: "3:00 PM", student: "Diego Reyes", program: "Academic Development", educator: "Teacher Eliza", status: "confirmed" },
+              { time: "4:30 PM", student: "Lucia Garcia", program: "Reading Assessment", educator: "Teacher Mia", status: "confirmed" },
             ].map((session, i) => (
               <div key={i} className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                 <div className="text-xs font-semibold text-gray-400 w-16">{session.time}</div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-[#1A1A2E] truncate">{session.student}</p>
                   <p className="text-xs text-gray-400 truncate">
-                    {session.program} &middot; {session.therapist}
+                    {session.program} &middot; {session.educator}
                   </p>
                 </div>
                 <span
@@ -423,7 +423,7 @@ function StudentsView() {
 
       {/* Filters */}
       <div className="flex items-center gap-2 flex-wrap">
-        {["All Students (127)", "Reading Enhancement", "Executive Function", "Speech Therapy", "Academic Dev"].map((f, i) => (
+        {["All Students (127)", "Reading Enhancement", "Executive Function", "Early Learners", "Academic Dev"].map((f, i) => (
           <button
             key={f}
             className={`px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-colors ${
@@ -441,7 +441,7 @@ function StudentsView() {
           <table className="w-full">
             <thead className="bg-gray-50 border-b border-gray-100">
               <tr>
-                {["Student", "Program", "Therapist", "Reading Level", "Next Session", "Status", ""].map((h) => (
+                {["Student", "Program", "Educator", "Reading Level", "Next Session", "Status", ""].map((h) => (
                   <th key={h} className="text-left px-4 py-3 text-[10px] font-semibold text-gray-400 uppercase tracking-wider">
                     {h}
                   </th>
@@ -450,12 +450,12 @@ function StudentsView() {
             </thead>
             <tbody>
               {[
-                { name: "Sofia Mendoza", age: 8, program: "Reading Enhancement", therapist: "Teacher Eliza", level: "Grade 3.5", next: "Today, 9:00 AM", status: "Active", color: "#E8B731" },
-                { name: "Mateo Santos", age: 10, program: "Executive Function", therapist: "Teacher Mia", level: "Grade 4.0", next: "Today, 10:30 AM", status: "Active", color: "#2E7AB8" },
-                { name: "Isabella Cruz", age: 6, program: "Speech Therapy", therapist: "Teacher Joy", level: "Grade 1.5", next: "Today, 1:00 PM", status: "Active", color: "#E84671" },
-                { name: "Diego Reyes", age: 12, program: "Academic Development", therapist: "Teacher Eliza", level: "Grade 5.5", next: "Today, 3:00 PM", status: "Active", color: "#2BAA8E" },
-                { name: "Lucia Garcia", age: 7, program: "Reading Assessment", therapist: "Teacher Mia", level: "Pending", next: "Today, 4:30 PM", status: "New", color: "#C9A84C" },
-                { name: "Andres Tan", age: 9, program: "Reading Enhancement", therapist: "Teacher Eliza", level: "Grade 3.0", next: "Tomorrow, 9:00 AM", status: "Active", color: "#E8B731" },
+                { name: "Sofia Mendoza", age: 8, program: "Reading Enhancement", educator: "Teacher Eliza", level: "Grade 3.5", next: "Today, 9:00 AM", status: "Active", color: "#E8B731" },
+                { name: "Mateo Santos", age: 10, program: "Executive Function", educator: "Teacher Mia", level: "Grade 4.0", next: "Today, 10:30 AM", status: "Active", color: "#2E7AB8" },
+                { name: "Isabella Cruz", age: 6, program: "Early Learners", educator: "Teacher Joy", level: "Grade 1.5", next: "Today, 1:00 PM", status: "Active", color: "#E84671" },
+                { name: "Diego Reyes", age: 12, program: "Academic Development", educator: "Teacher Eliza", level: "Grade 5.5", next: "Today, 3:00 PM", status: "Active", color: "#2BAA8E" },
+                { name: "Lucia Garcia", age: 7, program: "Reading Assessment", educator: "Teacher Mia", level: "Pending", next: "Today, 4:30 PM", status: "New", color: "#C9A84C" },
+                { name: "Andres Tan", age: 9, program: "Reading Enhancement", educator: "Teacher Eliza", level: "Grade 3.0", next: "Tomorrow, 9:00 AM", status: "Active", color: "#E8B731" },
               ].map((s, i) => (
                 <tr key={i} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
                   <td className="px-4 py-3.5">
@@ -473,7 +473,7 @@ function StudentsView() {
                     </div>
                   </td>
                   <td className="px-4 py-3.5 text-xs text-gray-600">{s.program}</td>
-                  <td className="px-4 py-3.5 text-xs text-gray-600">{s.therapist}</td>
+                  <td className="px-4 py-3.5 text-xs text-gray-600">{s.educator}</td>
                   <td className="px-4 py-3.5">
                     <span className="text-xs font-medium text-[#1A1A2E]">{s.level}</span>
                   </td>
@@ -509,16 +509,16 @@ function BookingsView() {
   const sessions: Record<string, { name: string; program: string; color: string }> = {
     "Mon-9:00": { name: "Sofia M.", program: "Reading", color: "#E8B731" },
     "Mon-10:00": { name: "Mateo S.", program: "Exec Func", color: "#2E7AB8" },
-    "Mon-1:00": { name: "Isabella C.", program: "Speech", color: "#E84671" },
+    "Mon-1:00": { name: "Isabella C.", program: "Early Reading", color: "#E84671" },
     "Mon-3:00": { name: "Diego R.", program: "Academic", color: "#2BAA8E" },
     "Tue-10:00": { name: "Andres T.", program: "Reading", color: "#E8B731" },
     "Tue-2:00": { name: "Maria F.", program: "Reading", color: "#E8B731" },
     "Wed-9:00": { name: "Sofia M.", program: "Reading", color: "#E8B731" },
-    "Wed-11:00": { name: "Lucas P.", program: "Speech", color: "#E84671" },
+    "Wed-11:00": { name: "Lucas P.", program: "Early Reading", color: "#E84671" },
     "Thu-1:00": { name: "Anna L.", program: "Academic", color: "#2BAA8E" },
     "Thu-3:00": { name: "Diego R.", program: "Academic", color: "#2BAA8E" },
     "Fri-9:00": { name: "Mateo S.", program: "Exec Func", color: "#2E7AB8" },
-    "Fri-2:00": { name: "Isabella C.", program: "Speech", color: "#E84671" },
+    "Fri-2:00": { name: "Isabella C.", program: "Early Reading", color: "#E84671" },
     "Sat-10:00": { name: "Group Class", program: "Reading", color: "#C9A84C" },
   };
 
@@ -639,7 +639,7 @@ function ContentView() {
           { title: "Hero Section", desc: "Main headline, tagline, and CTA on the homepage", lastEdit: "2 days ago", count: "1 page" },
           { title: "Programs", desc: "Early Learners, Reading Enhancement, Academic Development", lastEdit: "1 week ago", count: "4 programs" },
           { title: "Testimonials", desc: "Parent voices and stories from Alabang families", lastEdit: "3 weeks ago", count: "8 testimonials" },
-          { title: "Team Bios", desc: "Therapists and staff profiles", lastEdit: "1 month ago", count: "12 members" },
+          { title: "Team Bios", desc: "Educators and staff profiles", lastEdit: "1 month ago", count: "12 members" },
           { title: "Blog Posts", desc: "Articles on reading, parenting, and learning", lastEdit: "1 week ago", count: "6 posts" },
           { title: "FAQs", desc: "Common questions parents ask", lastEdit: "Never", count: "0 entries" },
         ].map((item, i) => (
@@ -693,7 +693,7 @@ function StaffView() {
           { label: "Revenue This Month", value: "₱412,500", change: "+18% vs last month", color: "#2BAA8E" },
           { label: "Pending Invoices", value: "₱48,500", change: "6 invoices unpaid", color: "#E84671" },
           { label: "Paid via SaligPay", value: "₱285,000", change: "69% of revenue", color: "#C9A84C" },
-          { label: "Active Therapists", value: "12", change: "+1 hired this month", color: "#2E7AB8" },
+          { label: "Active Educators", value: "12", change: "+1 hired this month", color: "#2E7AB8" },
         ].map((stat) => (
           <div key={stat.label} className="bg-white rounded-xl p-5 border border-gray-100">
             <p className="text-xs text-gray-400 mb-1">{stat.label}</p>
@@ -782,7 +782,7 @@ function LessonsView() {
           { label: "Comprehension", color: "#2E7AB8" },
           { label: "Executive Function", color: "#E84671" },
           { label: "Writing", color: "#2BAA8E" },
-          { label: "Speech", color: "#C9A84C" },
+          { label: "Sight Words", color: "#C9A84C" },
         ].map((f, i) => (
           <button
             key={i}
@@ -803,7 +803,7 @@ function LessonsView() {
           { title: "Planning &amp; Time Management", level: "Ages 8-12", duration: "45 min", color: "#E84671", category: "Executive Function", uses: 28 },
           { title: "Sight Words: Level 2", level: "Ages 5-7", duration: "25 min", color: "#E8B731", category: "Phonics", uses: 41 },
           { title: "Creative Writing Prompts", level: "Ages 10+", duration: "40 min", color: "#2BAA8E", category: "Writing", uses: 19 },
-          { title: "Articulation: R Sounds", level: "Speech Therapy", duration: "30 min", color: "#C9A84C", category: "Speech", uses: 23 },
+          { title: "Sight Words: Set 3", level: "Early Learners", duration: "25 min", color: "#C9A84C", category: "Phonics", uses: 23 },
           { title: "Reading Fluency Drills", level: "Ages 7-10", duration: "30 min", color: "#2E7AB8", category: "Comprehension", uses: 56 },
           { title: "Working Memory Games", level: "Ages 6-12", duration: "20 min", color: "#E84671", category: "Executive Function", uses: 35 },
           { title: "Essay Structure Basics", level: "Ages 11+", duration: "45 min", color: "#2BAA8E", category: "Writing", uses: 14 },
