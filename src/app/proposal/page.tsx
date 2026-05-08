@@ -606,39 +606,179 @@ export default function ProposalHome() {
         </div>
       </section>
 
-      {/* SIGN-OFF */}
+      {/* ACCEPT PROPOSAL */}
       <section className="border-t border-gray-100 px-6 sm:px-10 py-20 max-w-6xl mx-auto">
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C] mb-3">
-          07 &mdash; Next Steps
+          07 &mdash; How to Accept
         </p>
         <h2
           className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-6"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Ready to begin?
+          Pick a package, send a reply.
         </h2>
-        <p className="text-sm text-gray-500 max-w-xl mb-10 font-light leading-relaxed">
-          Reply to this proposal to confirm your chosen package, schedule a
-          kickoff call, and we&apos;ll send the agreement for signature.
+        <p className="text-sm text-gray-500 max-w-2xl mb-10 font-light leading-relaxed">
+          Tap the package you&apos;d like to start with. It opens a pre-filled
+          message you can send via email, Messenger, or WhatsApp &mdash; and
+          that counts as your go-signal. I&apos;ll reply within 24 hours with
+          a short agreement and the kickoff schedule.
         </p>
 
-        <div className="rounded-2xl border border-gray-100 p-8 max-w-2xl">
-          <div className="grid grid-cols-2 gap-8">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-gray-300 mb-3">
-                Approved By
-              </p>
-              <div className="h-px bg-gray-200 mt-12" />
-              <p className="text-xs text-gray-400 mt-2">R.E.A.D. Center Representative</p>
-            </div>
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-gray-300 mb-3">
-                Date
-              </p>
-              <div className="h-px bg-gray-200 mt-12" />
-              <p className="text-xs text-gray-400 mt-2">Signature date</p>
-            </div>
+        {/* Package accept buttons */}
+        <div className="grid md:grid-cols-3 gap-3 mb-10">
+          {[
+            {
+              tier: "Starter",
+              price: "₱12,000",
+              accent: "#9CA3AF",
+              featured: false,
+            },
+            {
+              tier: "Centre Plus",
+              price: "₱28,000",
+              accent: "#C9A84C",
+              featured: true,
+            },
+            {
+              tier: "Full Suite",
+              price: "₱48,000",
+              accent: "#1A1A2E",
+              featured: false,
+            },
+          ].map((pkg) => {
+            const subject = encodeURIComponent(
+              `R.E.A.D. Centre — Let's go with ${pkg.tier}`
+            );
+            const body = encodeURIComponent(
+              `Hi Mika,\n\nWe'd like to proceed with the ${pkg.tier} package (${pkg.price}). Please send the short agreement and let's set a kickoff date.\n\nThanks,\nR.E.A.D. Centre`
+            );
+            const mailto = `mailto:mika@example.com?subject=${subject}&body=${body}`;
+            return (
+              <a
+                key={pkg.tier}
+                href={mailto}
+                className={`group block rounded-2xl border-2 p-5 transition-all hover:shadow-lg cursor-pointer ${
+                  pkg.featured
+                    ? "border-[#C9A84C] bg-[#FFF9F0]"
+                    : "border-gray-100 bg-white hover:border-gray-300"
+                }`}
+              >
+                {pkg.featured && (
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C9A84C] mb-2 block">
+                    Recommended
+                  </span>
+                )}
+                <p className="text-[10px] uppercase tracking-wider text-gray-400 mb-1">
+                  Accept {pkg.tier}
+                </p>
+                <p
+                  className="text-2xl font-normal text-[#1A1A2E] mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {pkg.price}
+                </p>
+                <span
+                  className="inline-flex items-center gap-1.5 text-xs font-medium group-hover:gap-2.5 transition-all"
+                  style={{ color: pkg.accent }}
+                >
+                  Send pre-filled email
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </span>
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Alternative reply channels */}
+        <div className="rounded-2xl border border-gray-100 p-6 sm:p-7 max-w-2xl">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-4">
+            Or reply through any of these
+          </p>
+          <div className="space-y-3">
+            {[
+              {
+                channel: "Messenger",
+                handle: "m.me/your-username",
+                href: "https://m.me/your-username",
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#0084FF">
+                    <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.14.26.34.27.55l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.16-.07.34-.08.51-.04.91.25 1.88.38 2.92.38 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2zm6 7.46l-2.93 4.65c-.47.74-1.47.93-2.17.4l-2.34-1.74a.6.6 0 00-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.93-4.65c.47-.74 1.47-.93 2.17-.4l2.34 1.74c.21.16.51.16.72 0l3.16-2.4c.42-.32.97.18.69.63z" />
+                  </svg>
+                ),
+              },
+              {
+                channel: "WhatsApp",
+                handle: "+63 9XX XXX XXXX",
+                href: "https://wa.me/639XXXXXXXXX?text=Hi%20Mika%2C%20we%27d%20like%20to%20proceed%20with%20the%20R.E.A.D.%20website%20proposal.",
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#25D366">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487 2.981 1.287 2.981.858 3.518.804.537-.054 1.758-.718 2.006-1.413.247-.694.247-1.289.173-1.413-.075-.124-.272-.198-.57-.347zM12.05 22a9.84 9.84 0 01-5.026-1.378l-.36-.214-3.741.982.998-3.648-.235-.374A9.86 9.86 0 012.16 12.05c0-5.45 4.434-9.882 9.89-9.882a9.82 9.82 0 016.989 2.898 9.825 9.825 0 012.892 6.994c-.003 5.45-4.437 9.94-9.89 9.94zm8.412-18.295A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                ),
+              },
+              {
+                channel: "Email",
+                handle: "mika@example.com",
+                href: "mailto:mika@example.com?subject=R.E.A.D.%20Centre%20%E2%80%94%20Website%20Proposal",
+                icon: (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1A1A2E" strokeWidth="2">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                ),
+              },
+            ].map((c) => (
+              <a
+                key={c.channel}
+                href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex items-center justify-between gap-4 p-3 rounded-lg border border-gray-100 hover:border-gray-300 hover:bg-gray-50 transition-colors cursor-pointer group"
+              >
+                <div className="flex items-center gap-3">
+                  {c.icon}
+                  <div>
+                    <p className="text-sm font-medium text-[#1A1A2E]">{c.channel}</p>
+                    <p className="text-xs text-gray-400">{c.handle}</p>
+                  </div>
+                </div>
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  className="text-gray-300 group-hover:text-[#1A1A2E] group-hover:translate-x-1 transition-all"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            ))}
           </div>
+        </div>
+
+        {/* What happens after */}
+        <div className="mt-8 max-w-2xl">
+          <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">
+            What happens after you reply
+          </p>
+          <ol className="space-y-2 text-sm text-gray-600">
+            <li className="flex items-start gap-3">
+              <span className="text-[10px] font-bold text-[#C9A84C] mt-0.5">01</span>
+              <span>I&apos;ll send a one-page agreement (PDF, no legalese) within 24 hours.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[10px] font-bold text-[#C9A84C] mt-0.5">02</span>
+              <span>You sign digitally, I countersign, we book the 30-min kickoff call.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="text-[10px] font-bold text-[#C9A84C] mt-0.5">03</span>
+              <span>50% deposit (₱6,000 for Starter) via GCash, Maya, or bank transfer &mdash; the 7-day clock starts the day after.</span>
+            </li>
+          </ol>
         </div>
       </section>
 
