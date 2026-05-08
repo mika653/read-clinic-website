@@ -7,6 +7,7 @@ import {
   ParentPortal,
   PaymentSection,
 } from "@/components/Integrations";
+import InquiryForm from "@/components/InquiryForm";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
@@ -78,7 +79,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
         <div className="flex flex-wrap gap-2 mb-6">
           {[
             { label: "Reading Enhancement", color: "#E8B731", bg: "#FFF8E7" },
-            { label: "Educational Therapy", color: "#2E7AB8", bg: "#EBF5FF" },
+            { label: "Executive Function", color: "#2E7AB8", bg: "#EBF5FF" },
             { label: "Academic Development", color: "#E84671", bg: "#FFF0F3" },
             { label: "Developmental Support", color: "#2BAA8E", bg: "#F0FBF8" },
           ].map((tag, i) => (
@@ -228,7 +229,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               step: "03",
               color: "#E84671",
               title: "Personalize",
-              desc: "A custom intervention plan — reading enhancement, educational therapy, speech-language support, or academic enrichment.",
+              desc: "A custom learning plan — reading enhancement, executive function coaching, or academic enrichment matched to your child.",
             },
             {
               step: "04",
@@ -303,7 +304,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
               name: "Reading Enhancement",
               age: "6-9 years",
               desc: "Core literacy program strengthening fluency, decoding, comprehension, and reading confidence.",
-              features: ["Structured literacy intervention", "Reading comprehension strategies", "Educational therapy sessions"],
+              features: ["Structured literacy program", "Reading comprehension strategies", "Confidence-building activities"],
             },
             {
               emoji_alt: "Rocket",
@@ -410,7 +411,7 @@ function ModernPlayfulDesign({ device }: { device: string }) {
             },
             {
               quote:
-                "The therapists at READ don't just teach reading — they build confidence. My daughter now raises her hand in class. Priceless.",
+                "The educators at READ don't just teach reading — they build confidence. My daughter now raises her hand in class. Priceless.",
               name: "Christine T.",
               detail: "Mom of 1 | Portofino South",
               color: "#E84671",
@@ -560,6 +561,9 @@ function ModernPlayfulDesign({ device }: { device: string }) {
           </div>
         </div>
       </section>
+
+      {/* Inquiry Form */}
+      <InquiryForm variant="playful" isMobile={isMobile} />
 
       {/* Integration: Online Booking */}
       <BookingWidget variant="playful" isMobile={isMobile} />

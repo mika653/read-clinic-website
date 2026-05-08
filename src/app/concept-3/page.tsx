@@ -7,6 +7,7 @@ import {
   ParentPortal,
   PaymentSection,
 } from "@/components/Integrations";
+import InquiryForm from "@/components/InquiryForm";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
@@ -209,7 +210,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
                 color: "#2BAA8E",
                 title: "Developmental",
                 subtitle: "Support",
-                desc: "Speech-language pathology, occupational therapy, psychoeducational assessment, and parent consultations.",
+                desc: "Reading assessments, personalized learning plans, parent consultations, and progress reports for ongoing growth.",
               },
             ].map((item, i) => (
               <div
@@ -274,7 +275,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               {
                 name: "Reading Enhancement",
                 age: "Ages 6\u20139",
-                desc: "Core literacy intervention: fluency, decoding, comprehension strategies, and educational therapy.",
+                desc: "Core literacy program: fluency, decoding, comprehension strategies, and confidence-building.",
                 color: "#E84671",
               },
               {
@@ -286,7 +287,7 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
               {
                 name: "Developmental Services",
                 age: "All Ages",
-                desc: "Speech-language pathology, occupational therapy, psychoeducational assessments, and parent workshops.",
+                desc: "Reading assessments, personalized learning plans, progress reports, and parent workshops.",
                 color: "#2E7AB8",
               },
             ].map((program, i) => (
@@ -494,6 +495,9 @@ function MinimalistEditorialDesign({ device }: { device: string }) {
           </div>
         </div>
       </section>
+
+      {/* Inquiry Form */}
+      <InquiryForm variant="editorial" isMobile={isMobile} />
 
       {/* Integration: Online Booking */}
       <BookingWidget variant="editorial" isMobile={isMobile} />

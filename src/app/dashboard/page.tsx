@@ -23,10 +23,13 @@ import {
   CheckCircle2,
   AlertCircle,
   MoreHorizontal,
+  Inbox,
+  ChevronDown,
 } from "lucide-react";
 
 type View =
   | "overview"
+  | "inquiries"
   | "students"
   | "bookings"
   | "content"
@@ -35,22 +38,37 @@ type View =
   | "parent-portal"
   | "teacher-tools";
 
+type Role = "secretary" | "teacher" | "directress";
+
+const roles: Record<Role, { label: string; name: string; initials: string; color: string; bg: string }> = {
+  secretary: { label: "Secretary", name: "Joy Cruz", initials: "JC", color: "#E84671", bg: "#FFE0EA" },
+  teacher: { label: "Teacher", name: "Teacher Eliza", initials: "TE", color: "#2BAA8E", bg: "#D9F4EC" },
+  directress: { label: "Directress", name: "Mrs. Aguilar", initials: "MA", color: "#C9A84C", bg: "#FBF1D6" },
+};
+
 const cmsItems = [
-  { key: "students" as View, label: "Students & Clients", icon: Users },
-  { key: "bookings" as View, label: "Bookings & Schedule", icon: Calendar },
-  { key: "content" as View, label: "Website Content", icon: FileEdit },
-  { key: "staff" as View, label: "Staff & Billing", icon: Wallet },
+  { key: "inquiries" as View, label: "Inquiries", icon: Inbox, badge: 4, roles: ["secretary", "directress"] },
+  { key: "students" as View, label: "Students & Clients", icon: Users, roles: ["secretary", "teacher", "directress"] },
+  { key: "bookings" as View, label: "Bookings & Schedule", icon: Calendar, roles: ["secretary", "teacher", "directress"] },
+  { key: "content" as View, label: "Website Content", icon: FileEdit, roles: ["directress"] },
+  { key: "staff" as View, label: "Staff & Billing", icon: Wallet, roles: ["directress"] },
 ];
 
 const lmsItems = [
-  { key: "lessons" as View, label: "Lesson Library", icon: BookOpen },
-  { key: "parent-portal" as View, label: "Parent Portal", icon: UserCheck },
-  { key: "teacher-tools" as View, label: "Teacher Tools", icon: GraduationCap },
+  { key: "lessons" as View, label: "Lesson Library", icon: BookOpen, roles: ["teacher", "directress"] },
+  { key: "parent-portal" as View, label: "Parent Portal", icon: UserCheck, roles: ["teacher", "directress"] },
+  { key: "teacher-tools" as View, label: "Teacher Tools", icon: GraduationCap, roles: ["teacher", "directress"] },
 ];
 
 export default function Dashboard() {
   const [view, setView] = useState<View>("overview");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [role, setRole] = useState<Role>("secretary");
+  const [roleMenuOpen, setRoleMenuOpen] = useState(false);
+
+  const currentRole = roles[role];
+  const visibleCmsItems = cmsItems.filter((item) => item.roles.includes(role));
+  const visibleLmsItems = lmsItems.filter((item) => item.roles.includes(role));
 
   return (
     <div
@@ -88,51 +106,62 @@ export default function Dashboard() {
             Overview
           </button>
 
-          <div className="pt-4">
-            <p className="px-3 text-[10px] font-bold text-[#E84671] uppercase tracking-[0.15em] mb-2">
-              CMS
-            </p>
-            {cmsItems.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => {
-                  setView(item.key);
-                  setSidebarOpen(false);
-                }}
-                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                  view === item.key
-                    ? "bg-[#E84671]/10 text-[#E84671]"
-                    : "text-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                <item.icon size={16} />
-                {item.label}
-              </button>
-            ))}
-          </div>
+          {visibleCmsItems.length > 0 && (
+            <div className="pt-4">
+              <p className="px-3 text-[10px] font-bold text-[#E84671] uppercase tracking-[0.15em] mb-2">
+                CMS
+              </p>
+              {visibleCmsItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => {
+                    setView(item.key);
+                    setSidebarOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                    view === item.key
+                      ? "bg-[#E84671]/10 text-[#E84671]"
+                      : "text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  <span className="flex items-center gap-3">
+                    <item.icon size={16} />
+                    {item.label}
+                  </span>
+                  {item.badge && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#E84671] text-white">
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <div className="pt-4">
-            <p className="px-3 text-[10px] font-bold text-[#2BAA8E] uppercase tracking-[0.15em] mb-2">
-              LMS
-            </p>
-            {lmsItems.map((item) => (
-              <button
-                key={item.key}
-                onClick={() => {
-                  setView(item.key);
-                  setSidebarOpen(false);
-                }}
-                className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
-                  view === item.key
-                    ? "bg-[#2BAA8E]/10 text-[#2BAA8E]"
-                    : "text-gray-600 hover:bg-gray-50"
-                }`}
-              >
-                <item.icon size={16} />
-                {item.label}
-              </button>
-            ))}
-          </div>
+          {visibleLmsItems.length > 0 && (
+            <div className="pt-4">
+              <p className="px-3 text-[10px] font-bold text-[#2BAA8E] uppercase tracking-[0.15em] mb-2">
+                LMS
+              </p>
+              {visibleLmsItems.map((item) => (
+                <button
+                  key={item.key}
+                  onClick={() => {
+                    setView(item.key);
+                    setSidebarOpen(false);
+                  }}
+                  className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                    view === item.key
+                      ? "bg-[#2BAA8E]/10 text-[#2BAA8E]"
+                      : "text-gray-600 hover:bg-gray-50"
+                  }`}
+                >
+                  <item.icon size={16} />
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
         </nav>
 
         <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-gray-100 bg-white">
@@ -175,21 +204,81 @@ export default function Dashboard() {
               <Bell size={16} className="text-gray-500" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#E84671] rounded-full" />
             </button>
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-[#E8B731]/20 flex items-center justify-center text-xs font-bold text-[#1A1A2E]">
-                TE
-              </div>
-              <div className="hidden sm:block">
-                <p className="text-xs font-medium text-[#1A1A2E]">Teacher Eliza</p>
-                <p className="text-[10px] text-gray-400">Admin</p>
-              </div>
+
+            {/* Role switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setRoleMenuOpen(!roleMenuOpen)}
+                className="flex items-center gap-2.5 cursor-pointer hover:bg-gray-50 rounded-lg p-1.5 -mr-1.5"
+              >
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+                  style={{ backgroundColor: currentRole.bg, color: currentRole.color }}
+                >
+                  {currentRole.initials}
+                </div>
+                <div className="hidden sm:block text-left">
+                  <p className="text-xs font-medium text-[#1A1A2E]">{currentRole.name}</p>
+                  <p className="text-[10px] text-gray-400">{currentRole.label}</p>
+                </div>
+                <ChevronDown size={14} className="text-gray-400 hidden sm:block" />
+              </button>
+
+              {roleMenuOpen && (
+                <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-xl border border-gray-100 shadow-lg overflow-hidden z-50">
+                  <div className="p-3 border-b border-gray-100">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                      Switch Role View
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">
+                      Each role sees a tailored dashboard
+                    </p>
+                  </div>
+                  {(Object.keys(roles) as Role[]).map((r) => {
+                    const roleData = roles[r];
+                    return (
+                      <button
+                        key={r}
+                        onClick={() => {
+                          setRole(r);
+                          setRoleMenuOpen(false);
+                          // If current view isn't visible to new role, reset to overview
+                          const allItems = [...cmsItems, ...lmsItems];
+                          const currentItem = allItems.find((i) => i.key === view);
+                          if (currentItem && !currentItem.roles.includes(r)) {
+                            setView("overview");
+                          }
+                        }}
+                        className={`w-full flex items-center gap-3 p-3 hover:bg-gray-50 transition-colors cursor-pointer text-left ${
+                          role === r ? "bg-gray-50" : ""
+                        }`}
+                      >
+                        <div
+                          className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0"
+                          style={{ backgroundColor: roleData.bg, color: roleData.color }}
+                        >
+                          {roleData.initials}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-xs font-medium text-[#1A1A2E]">{roleData.name}</p>
+                          <p className="text-[10px] text-gray-400">{roleData.label}</p>
+                        </div>
+                        {role === r && (
+                          <CheckCircle2 size={14} style={{ color: roleData.color }} className="flex-shrink-0" />
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           </div>
         </header>
 
         {/* Content */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
-          {view === "overview" && <OverviewView />}
+          {view === "overview" && <OverviewView role={role} />}
+          {view === "inquiries" && <InquiriesView />}
           {view === "students" && <StudentsView />}
           {view === "bookings" && <BookingsView />}
           {view === "content" && <ContentView />}
@@ -204,7 +293,8 @@ export default function Dashboard() {
 }
 
 /* OVERVIEW */
-function OverviewView() {
+function OverviewView({ role }: { role: Role }) {
+  const greetingName = roles[role].name;
   return (
     <div className="space-y-6">
       <div>
@@ -212,7 +302,7 @@ function OverviewView() {
           className="text-2xl font-semibold text-[#1A1A2E]"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Welcome back, Teacher Eliza 👋
+          Welcome back, {greetingName} 👋
         </h1>
         <p className="text-sm text-gray-500 mt-1">
           Here&apos;s what&apos;s happening at R.E.A.D. today.
@@ -965,6 +1055,161 @@ function TeacherToolsView() {
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+
+/* CMS: INQUIRIES (Secretary's primary inbox) */
+function InquiriesView() {
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between flex-wrap gap-3">
+        <div>
+          <h1 className="text-2xl font-semibold text-[#1A1A2E]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            Inquiries Inbox
+          </h1>
+          <p className="text-sm text-gray-500 mt-1">New parent inquiries from the website form. Triage and convert to bookings.</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#E84671] text-white">4 New</span>
+          <span className="text-xs text-gray-400">12 this week</span>
+        </div>
+      </div>
+
+      {/* Filter pills */}
+      <div className="flex items-center gap-2 flex-wrap">
+        {[
+          { label: "All (12)", active: true },
+          { label: "New (4)", color: "#E84671" },
+          { label: "Contacted (5)", color: "#E8B731" },
+          { label: "Scheduled (2)", color: "#2BAA8E" },
+          { label: "Closed (1)", color: "#9CA3AF" },
+        ].map((f, i) => (
+          <button
+            key={f.label}
+            className={`px-3 py-1.5 rounded-full text-xs font-medium cursor-pointer transition-colors ${
+              i === 0 ? "bg-[#1A1A2E] text-white" : "bg-white border border-gray-200 text-gray-600 hover:border-gray-300"
+            }`}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Inquiry list */}
+      <div className="space-y-2">
+        {[
+          {
+            received: "Today, 2:14 PM",
+            parent: "Patricia Aguilar",
+            phone: "+63 917 234 5678",
+            email: "p.aguilar@email.com",
+            child: "Camila Aguilar",
+            age: 5,
+            school: "PAREF Woodrose",
+            grade: "Kindergarten",
+            schedule: "Weekday Mornings",
+            concerns: "Camila is struggling with sight words and seems anxious during reading time at school. Looking for personalized support.",
+            status: "new",
+          },
+          {
+            received: "Today, 11:32 AM",
+            parent: "Marco Villanueva",
+            phone: "+63 918 555 1234",
+            email: "m.villanueva@email.com",
+            child: "Sebastian Villanueva",
+            age: 8,
+            school: "Beacon Academy",
+            grade: "Grade 2",
+            schedule: "Saturdays",
+            concerns: "Wants to enroll Sebastian in your Reading Enhancement program. He's reading at Grade 1 level.",
+            status: "new",
+          },
+          {
+            received: "Yesterday",
+            parent: "Andrea Lim",
+            phone: "+63 920 888 9999",
+            email: "alim@email.com",
+            child: "Lucas Lim",
+            age: 10,
+            school: "Everest Academy",
+            grade: "Grade 4",
+            schedule: "Weekday Afternoons",
+            concerns: "Friend recommended R.E.A.D. — would love to know more about your Academic Development program.",
+            status: "contacted",
+          },
+        ].map((inq, i) => (
+          <div key={i} className="bg-white rounded-xl border border-gray-100 p-5 hover:shadow-md transition-shadow">
+            <div className="flex items-start justify-between gap-4 mb-3 flex-wrap">
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
+                  style={{ backgroundColor: ["#E84671", "#2E7AB8", "#2BAA8E", "#E8B731"][i % 4] }}
+                >
+                  {inq.parent.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#1A1A2E]">{inq.parent}</p>
+                  <p className="text-[11px] text-gray-400">
+                    {inq.phone} &middot; {inq.email}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <span
+                  className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full ${
+                    inq.status === "new"
+                      ? "bg-[#E84671]/10 text-[#E84671]"
+                      : "bg-[#E8B731]/10 text-[#E8B731]"
+                  }`}
+                >
+                  {inq.status}
+                </span>
+                <span className="text-[10px] text-gray-400">{inq.received}</span>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-3 text-xs">
+              <div>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Child</p>
+                <p className="text-[#1A1A2E] font-medium">{inq.child}, {inq.age}</p>
+              </div>
+              <div>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Grade Level</p>
+                <p className="text-[#1A1A2E] font-medium">{inq.grade}</p>
+              </div>
+              <div>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">School</p>
+                <p className="text-[#1A1A2E] font-medium">{inq.school}</p>
+              </div>
+              <div>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Preferred Schedule</p>
+                <p className="text-[#1A1A2E] font-medium">{inq.schedule}</p>
+              </div>
+            </div>
+
+            <div className="text-xs text-gray-500 italic leading-relaxed bg-gray-50 rounded-lg p-3 mb-4">
+              &ldquo;{inq.concerns}&rdquo;
+            </div>
+
+            <div className="flex items-center gap-2 flex-wrap">
+              <button className="px-3 py-1.5 text-xs bg-[#2BAA8E] text-white rounded-md cursor-pointer font-medium">
+                Schedule Assessment
+              </button>
+              <button className="px-3 py-1.5 text-xs bg-white border border-gray-200 text-gray-700 rounded-md cursor-pointer font-medium">
+                Reply via Email
+              </button>
+              <button className="px-3 py-1.5 text-xs bg-white border border-gray-200 text-gray-700 rounded-md cursor-pointer font-medium">
+                Send WhatsApp
+              </button>
+              <button className="px-3 py-1.5 text-xs text-gray-400 hover:text-gray-700 cursor-pointer">
+                Mark as closed
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -318,7 +318,7 @@ export default function ProposalHome() {
           className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-3"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          One workspace for the whole clinic.
+          One workspace for the whole centre.
         </h2>
         <p className="text-sm text-gray-500 max-w-xl mb-10 font-light leading-relaxed">
           A unified Content Management System and Learning Management System
@@ -384,60 +384,168 @@ export default function ProposalHome() {
         </Link>
       </section>
 
+      {/* TEAM & RECOMMENDATIONS */}
+      <section className="border-t border-gray-100 px-6 sm:px-10 py-20 max-w-6xl mx-auto">
+        <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C] mb-3">
+          05 &mdash; Team &amp; Recommendations
+        </p>
+        <h2
+          className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-3"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          Built with input from people who&apos;ve done this.
+        </h2>
+        <p className="text-sm text-gray-500 max-w-2xl mb-12 font-light leading-relaxed">
+          This proposal was shaped by perspectives beyond just design and
+          development. Each contributor weighed in on what would actually
+          serve R.E.A.D.&apos;s parents, educators, and operations.
+        </p>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {[
+            {
+              role: "Web Developer",
+              expertise: "Next.js, performance, integrations",
+              note: "Built mobile-first so it&rsquo;s fast on any phone Alabang parents use to inquire from the school car.",
+              color: "#1A1A2E",
+            },
+            {
+              role: "UX/UI Designer",
+              expertise: "Information hierarchy, parent flow",
+              note: "Inquiry form stays short — every extra field cuts conversions. Schedule preference is the most important after name + child age.",
+              color: "#2E7AB8",
+            },
+            {
+              role: "Graphic Artist",
+              expertise: "Brand visual system",
+              note: "The four logo colors are doing a lot of work — kept them as accents only so the site doesn&rsquo;t feel like a kindergarten flyer.",
+              color: "#E84671",
+            },
+            {
+              role: "Copywriter",
+              expertise: "Tone, parent-facing language",
+              note: "Avoided &lsquo;therapy&rsquo; and &lsquo;intervention&rsquo; throughout. R.E.A.D. is a reading and learning centre — clinical language overpromises and may scare parents off.",
+              color: "#2BAA8E",
+            },
+            {
+              role: "Educator",
+              expertise: "Learning specialist, classroom experience",
+              note: "Skip &lsquo;therapist&rsquo; — call them educators or reading specialists, matching how R.E.A.D. hires (&ldquo;Teacher / Reading Clinician&rdquo;). Add the inquiry form because that&rsquo;s where the actual journey starts.",
+              color: "#E8B731",
+              featured: true,
+            },
+            {
+              role: "Centre Directress",
+              expertise: "Operations, staffing, parent relations",
+              note: "Three roles need dashboard access — Secretary handles inquiries, Teachers track lessons, Directress sees everything. Don&rsquo;t over-engineer; keep it boringly simple for the team.",
+              color: "#C9A84C",
+              featured: true,
+            },
+            {
+              role: "Parent (Target Audience)",
+              expertise: "Alabang mom of two, school-age kids",
+              note: "I want to see real parent stories, photos of the actual centre, and a short form. WhatsApp button is non-negotiable &mdash; calling is awkward when I&rsquo;m at the office.",
+              color: "#E84671",
+            },
+          ].map((member, i) => (
+            <div
+              key={i}
+              className={`rounded-2xl p-5 border ${
+                member.featured ? "border-[#C9A84C] bg-[#FFF9F0]" : "border-gray-100 bg-white"
+              }`}
+            >
+              <div className="flex items-center gap-2 mb-3">
+                <div
+                  className="w-2 h-2 rounded-full"
+                  style={{ backgroundColor: member.color }}
+                />
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                  {member.role}
+                </p>
+                {member.featured && (
+                  <span className="ml-auto text-[9px] font-bold uppercase tracking-[0.15em] text-[#C9A84C]">
+                    + New
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-gray-400 mb-3">{member.expertise}</p>
+              <p
+                className="text-sm text-gray-600 leading-relaxed italic"
+                dangerouslySetInnerHTML={{ __html: `&ldquo;${member.note}&rdquo;` }}
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* INVESTMENT */}
       <section id="investment" className="border-t border-gray-100 px-6 sm:px-10 py-20 max-w-6xl mx-auto">
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C] mb-3">
-          05 &mdash; Investment
+          06 &mdash; Investment
         </p>
         <h2
-          className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-12"
+          className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-3"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          Transparent pricing.
+          Honest, friends-rate pricing.
         </h2>
+        <p className="text-sm text-gray-500 max-w-2xl mb-12 font-light leading-relaxed">
+          Standard agency pricing for this scope in Manila is roughly
+          ₱45,000-75,000 for the website alone, and ₱120,000+ with a custom
+          dashboard. These are the friends &amp; family rates &mdash; about
+          50% off &mdash; because some of you are college friends, not
+          enterprise clients.
+        </p>
 
         <div className="grid md:grid-cols-3 gap-4">
           {[
             {
-              tier: "Essentials",
-              price: "₱85,000",
+              tier: "Starter",
+              price: "₱18,000",
+              standardPrice: "₱45,000",
               note: "One-time",
-              desc: "Public website only",
+              desc: "Just the website",
               features: [
                 "1 chosen design iteration",
-                "Up to 6 pages",
-                "Mobile-first responsive",
-                "Domain &amp; hosting setup",
-                "30 days support",
+                "Up to 6 pages (Home, About, Programs, etc.)",
+                "Mobile-first &amp; fully responsive",
+                "Inquiry form connected to your email",
+                "Domain &amp; Vercel hosting setup",
+                "30 days post-launch support",
               ],
             },
             {
-              tier: "Growth",
-              price: "₱165,000",
+              tier: "Centre Plus",
+              price: "₱42,000",
+              standardPrice: "₱120,000",
               note: "One-time",
-              desc: "Website + Dashboard",
+              desc: "Website + Operations Dashboard",
               features: [
-                "Everything in Essentials",
-                "Operations dashboard (CMS)",
-                "Lesson management (LMS)",
-                "Parent portal",
-                "Staff training session",
+                "Everything in Starter",
+                "Inquiries inbox for the secretary",
+                "Bookings &amp; schedule view for staff",
+                "Lesson library &amp; teacher tools",
+                "Parent portal for progress tracking",
+                "Role-based access (Secretary, Teacher, Directress)",
+                "1 staff training session",
                 "60 days support",
               ],
               featured: true,
             },
             {
-              tier: "Premium",
-              price: "₱245,000",
+              tier: "Full Suite",
+              price: "₱68,000",
+              standardPrice: "₱195,000",
               note: "One-time",
-              desc: "Full digital ecosystem",
+              desc: "Everything + payments &amp; chat",
               features: [
-                "Everything in Growth",
-                "SaligPay integration",
-                "WhatsApp + Messenger automation",
-                "Custom integrations",
-                "Quarterly reviews (1 year)",
-                "Priority support",
+                "Everything in Centre Plus",
+                "SaligPay payment integration",
+                "WhatsApp / Messenger chat widget",
+                "Google Reviews &amp; FB feed widgets",
+                "Automated email reminders",
+                "Quarterly reviews for 6 months",
+                "Priority support &amp; small edits",
               ],
             },
           ].map((tier, i) => (
@@ -457,14 +565,19 @@ export default function ProposalHome() {
               <p className={`text-xs uppercase tracking-wider mb-1 ${tier.featured ? "text-white/60" : "text-gray-400"}`}>
                 {tier.tier}
               </p>
-              <p
-                className={`text-3xl font-normal ${tier.featured ? "text-white" : "text-[#1A1A2E]"}`}
-                style={{ fontFamily: "'Playfair Display', serif" }}
-              >
-                {tier.price}
-              </p>
+              <div className="flex items-baseline gap-2 mb-1">
+                <p
+                  className={`text-3xl font-normal ${tier.featured ? "text-white" : "text-[#1A1A2E]"}`}
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  {tier.price}
+                </p>
+                <p className={`text-xs line-through ${tier.featured ? "text-white/30" : "text-gray-300"}`}>
+                  {tier.standardPrice}
+                </p>
+              </div>
               <p className={`text-xs ${tier.featured ? "text-white/40" : "text-gray-300"}`}>
-                {tier.note}
+                {tier.note} &middot; Friends rate
               </p>
               <p className={`text-sm font-medium mt-4 mb-5 ${tier.featured ? "text-white/80" : "text-[#1A1A2E]"}`}>
                 {tier.desc}
@@ -489,17 +602,39 @@ export default function ProposalHome() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs text-gray-400 max-w-2xl">
-          Prices exclude domain registration, third-party software subscriptions
-          (e.g. SaligPay transaction fees), and ongoing hosting (~₱500-2,500/mo
-          depending on traffic). Payment terms: 50% upfront, 50% on launch.
+        <div className="mt-10 grid md:grid-cols-2 gap-4">
+          <div className="rounded-2xl border border-gray-100 p-5">
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">
+              Optional Monthly Retainer
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed font-light">
+              After launch, optional retainers (₱1,500-3,500/mo) cover content
+              updates, monthly check-ins, and small edits so your team
+              isn&apos;t troubleshooting alone.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-gray-100 p-5 bg-[#FFF9F0]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#C9A84C] mb-2">
+              What&apos;s Not Included
+            </p>
+            <p className="text-sm text-gray-600 leading-relaxed font-light">
+              Domain registration (~₱600/year), Vercel hosting (free tier
+              should suffice for a year), and SaligPay transaction fees
+              (per-transaction, no monthly minimum).
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-6 text-xs text-gray-400 max-w-2xl">
+          Payment terms: 50% upfront to start, 50% on launch. Bank
+          transfer, GCash, or Maya all welcome.
         </p>
       </section>
 
       {/* TIMELINE */}
       <section className="border-t border-gray-100 px-6 sm:px-10 py-20 max-w-6xl mx-auto">
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C] mb-3">
-          06 &mdash; Timeline
+          07 &mdash; Timeline
         </p>
         <h2
           className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-12"
@@ -532,7 +667,7 @@ export default function ProposalHome() {
       {/* SIGN-OFF */}
       <section className="border-t border-gray-100 px-6 sm:px-10 py-20 max-w-6xl mx-auto">
         <p className="text-xs font-medium uppercase tracking-[0.25em] text-[#C9A84C] mb-3">
-          07 &mdash; Next Steps
+          08 &mdash; Next Steps
         </p>
         <h2
           className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-6"

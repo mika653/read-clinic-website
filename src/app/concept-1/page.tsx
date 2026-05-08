@@ -7,6 +7,7 @@ import {
   ParentPortal,
   PaymentSection,
 } from "@/components/Integrations";
+import InquiryForm from "@/components/InquiryForm";
 
 function ReadLogo({ size = 40 }: { size?: number }) {
   return (
@@ -263,7 +264,7 @@ function WarmElegantDesign({ device }: { device: string }) {
               icon: "D",
               color: "#2BAA8E",
               title: "Developmental Support",
-              desc: "Speech-language pathology, occupational therapy, and psychoeducational assessments — supporting the whole child's growth.",
+              desc: "Reading assessments and personalized learning plans that map exactly where your child is — and the steps to take them further.",
             },
           ].map((item, i) => (
             <div
@@ -330,7 +331,7 @@ function WarmElegantDesign({ device }: { device: string }) {
               age: "Ages 6-9",
               color: "#E84671",
               bg: "#FFF0F3",
-              features: ["Structured literacy intervention", "Reading comprehension", "Educational therapy"],
+              features: ["Structured literacy program", "Reading comprehension", "Confidence building"],
               featured: true,
             },
             {
@@ -612,6 +613,9 @@ function WarmElegantDesign({ device }: { device: string }) {
           Book a Free Consultation
         </button>
       </section>
+
+      {/* Inquiry Form */}
+      <InquiryForm variant="warm" isMobile={isMobile} />
 
       {/* Integration: Online Booking */}
       <BookingWidget variant="warm" isMobile={isMobile} />
