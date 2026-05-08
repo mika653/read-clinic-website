@@ -73,8 +73,15 @@ export default function ProposalHome() {
         <p className="mt-8 text-base text-gray-500 max-w-xl leading-relaxed font-light">
           A complete digital ecosystem for Reading Enhancement and Academic
           Development &mdash; designed for Ayala Alabang&apos;s most discerning
-          families, and built to scale your clinic&apos;s operations.
+          families, and built to scale your centre&apos;s operations.
         </p>
+
+        <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C9A84C]/40 bg-[#FFF9F0]">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C9A84C] animate-pulse" />
+          <span className="text-xs font-medium text-[#1A1A2E]">
+            Live in 5&ndash;7 days from kickoff
+          </span>
+        </div>
 
         <div className="mt-12 grid sm:grid-cols-3 gap-6 max-w-3xl">
           {[
@@ -533,26 +540,65 @@ export default function ProposalHome() {
           06 &mdash; Timeline
         </p>
         <h2
-          className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-12"
+          className="text-3xl sm:text-4xl font-normal text-[#1A1A2E] mb-3"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
-          From handshake to launch.
+          Live in 5&ndash;7 days.
         </h2>
+        <p className="text-sm text-gray-500 max-w-2xl mb-12 font-light leading-relaxed">
+          The Starter website goes live within a week of kickoff. Centre Plus
+          and Full Suite layer on dashboard and integrations after launch
+          &mdash; so the public-facing site doesn&apos;t wait for the
+          back-of-house work.
+        </p>
 
+        {/* Starter timeline */}
+        <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#FFF9F0] p-6 sm:p-8 mb-10">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#C9A84C]">
+              Starter Website
+            </span>
+            <span className="text-[10px] text-gray-400">5&ndash;7 days from kickoff</span>
+          </div>
+
+          <div className="relative">
+            <div className="absolute left-3 top-0 bottom-0 w-px bg-[#C9A84C]/30" />
+            {[
+              { day: "Day 0", title: "Discovery &amp; onboarding", desc: "Brand assets, content, and photos gathered. Doesn&rsquo;t count toward the 7-day clock." },
+              { day: "Day 1", title: "Kickoff &amp; direction", desc: "Final iteration locked in. Site map and content outline approved." },
+              { day: "Days 2-3", title: "Design", desc: "Homepage, About, Programs, and inquiry form designs ready for sign-off." },
+              { day: "Days 4-5", title: "Build", desc: "Site built and reviewed on mobile, tablet, and desktop." },
+              { day: "Day 6", title: "QA &amp; polish", desc: "Cross-browser checks, performance pass, SEO basics in place." },
+              { day: "Day 7", title: "Launch 🚀", desc: "Site goes live, you get the keys, walkthrough call done." },
+            ].map((step, i) => (
+              <div key={i} className="relative pl-12 pb-6 last:pb-0">
+                <div className="absolute left-0 top-0 w-7 h-7 rounded-full border-2 border-[#C9A84C] bg-white flex items-center justify-center text-[10px] font-bold text-[#C9A84C]">
+                  {i}
+                </div>
+                <p className="text-xs text-[#C9A84C] font-semibold mb-0.5">{step.day}</p>
+                <h3 className="text-sm font-medium text-[#1A1A2E]" dangerouslySetInnerHTML={{ __html: step.title }} />
+                <p className="text-xs text-gray-500 mt-0.5 font-light leading-relaxed" dangerouslySetInnerHTML={{ __html: step.desc }} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* What comes next */}
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gray-400 mb-4">
+          Optional &mdash; layered on after launch
+        </p>
         <div className="relative">
           <div className="absolute left-3 top-0 bottom-0 w-px bg-gray-100" />
           {[
-            { week: "Week 1", title: "Discovery &amp; Direction", desc: "Final iteration selected. Brand assets and content gathered." },
-            { week: "Week 2-3", title: "Website Design &amp; Build", desc: "Public site built page-by-page with weekly review checkpoints." },
-            { week: "Week 4-5", title: "Dashboard Development", desc: "CMS and LMS modules built, populated with R.E.A.D.&apos;s real data." },
-            { week: "Week 6", title: "Integrations &amp; Testing", desc: "SaligPay, parent portal, and any add-ons connected and stress-tested." },
-            { week: "Week 7", title: "Staff Training &amp; Launch", desc: "Hands-on training session, soft launch, then public go-live." },
+            { range: "Weeks 2-4", title: "Dashboard buildout", desc: "If you choose Centre Plus, the operations dashboard (CMS + LMS) is built and populated with R.E.A.D.&apos;s real data." },
+            { range: "Week 5", title: "Integrations &amp; staff training", desc: "SaligPay, WhatsApp, parent portal connected. Hands-on training session for Secretary, Teacher, and Directress roles." },
+            { range: "Ongoing", title: "Quarterly check-ins", desc: "If you want a retainer, we meet every quarter to update content, tune performance, and ship small improvements." },
           ].map((step, i) => (
-            <div key={i} className="relative pl-12 pb-10 last:pb-0">
-              <div className="absolute left-0 top-0 w-7 h-7 rounded-full border-2 border-[#C9A84C] bg-white flex items-center justify-center text-[10px] font-bold text-[#C9A84C]">
-                {i + 1}
+            <div key={i} className="relative pl-12 pb-8 last:pb-0">
+              <div className="absolute left-0 top-0 w-7 h-7 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center text-[10px] font-bold text-gray-400">
+                +{i + 1}
               </div>
-              <p className="text-xs text-gray-400 mb-1">{step.week}</p>
+              <p className="text-xs text-gray-400 mb-1">{step.range}</p>
               <h3 className="text-base font-medium text-[#1A1A2E]" dangerouslySetInnerHTML={{ __html: step.title }} />
               <p className="text-sm text-gray-500 mt-1 font-light" dangerouslySetInnerHTML={{ __html: step.desc }} />
             </div>
