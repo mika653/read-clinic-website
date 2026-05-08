@@ -335,15 +335,17 @@ export default function ProposalHome() {
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-[#E84671] mb-4">
-              CMS Capabilities
+            <p className="text-xs uppercase tracking-[0.2em] text-[#E84671] mb-1">
+              Staff Dashboard
             </p>
+            <p className="text-[10px] text-gray-400 mb-4">Included in Centre Plus &amp; Full Suite</p>
             <div className="space-y-3">
               {[
-                "Manage students &amp; client profiles",
-                "Calendar view of all bookings",
-                "Edit website content (hero, programs, testimonials)",
-                "Staff hiring pipeline &amp; billing log",
+                "Inquiries inbox (Secretary)",
+                "Bookings &amp; calendar (all roles)",
+                "Students &amp; lesson library (Teacher, Directress)",
+                "Website content &amp; staff billing (Directress)",
+                "SaligPay payment tracking",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 text-sm text-gray-600">
                   <span className="w-5 h-5 rounded-full bg-[#E84671]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -357,15 +359,17 @@ export default function ProposalHome() {
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-[#2BAA8E] mb-4">
-              LMS Capabilities
+            <p className="text-xs uppercase tracking-[0.2em] text-[#2BAA8E] mb-1">
+              Parent Portal
             </p>
+            <p className="text-[10px] text-gray-400 mb-4">Full Suite only</p>
             <div className="space-y-3">
               {[
-                "Lesson library by age group &amp; level",
-                "Parent-facing portal for progress tracking",
-                "Teacher tools for lesson plans &amp; observations",
-                "Auto-generated progress reports",
+                "Each parent logs in to view <strong>their child&rsquo;s</strong> progress",
+                "Reading-level growth charts &amp; milestones",
+                "Session notes from the educator",
+                "Upcoming schedule &amp; package status",
+                "Auto-generated quarterly progress reports",
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3 text-sm text-gray-600">
                   <span className="w-5 h-5 rounded-full bg-[#2BAA8E]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -403,9 +407,10 @@ export default function ProposalHome() {
           Start small. Grow into it.
         </h2>
         <p className="text-sm text-gray-500 max-w-2xl mb-12 font-light leading-relaxed">
-          Begin with a polished website, then layer on the dashboard and
-          integrations as the centre grows. Every tier is a complete piece
-          of work &mdash; no half-built features.
+          Most centres should start with <strong className="text-[#1A1A2E]">Centre Plus</strong> &mdash; it&apos;s the
+          tier that actually replaces the daily chaos (inquiries in DMs,
+          bookings in notebooks, payments in deposit slips). Starter is
+          pure marketing site; Full Suite adds the parent-facing experience.
         </p>
 
         <div className="grid md:grid-cols-3 gap-4">
@@ -419,7 +424,8 @@ export default function ProposalHome() {
                 "1 chosen design iteration",
                 "Up to 6 pages (Home, About, Programs, Contact, etc.)",
                 "Mobile-first &amp; fully responsive",
-                "Inquiry form connected to your email",
+                "Inquiry form delivered to your email",
+                "WhatsApp click-to-chat button",
                 "Domain &amp; hosting setup",
                 "30 days post-launch support",
               ],
@@ -428,30 +434,33 @@ export default function ProposalHome() {
               tier: "Centre Plus",
               price: "₱28,000",
               note: "One-time",
-              desc: "Website + Operations Dashboard",
+              desc: "Run the centre digitally &mdash; from inquiry to paid",
               features: [
                 "Everything in Starter",
                 "Inquiries inbox for the secretary",
                 "Bookings &amp; schedule view",
-                "Lesson library &amp; teacher tools",
-                "Parent portal for progress tracking",
+                "Students &amp; lesson library",
+                "Teacher tools (lesson plans, session notes)",
                 "Role-based access (Secretary, Teacher, Directress)",
+                "<strong>SaligPay payments</strong> (free for you, parents pay convenience fee)",
+                "Recurring billing for monthly class packages",
                 "1 staff training session",
                 "60 days support",
               ],
               featured: true,
+              highlight: "Replaces 4 spreadsheets, 3 chat threads, and the deposit-slip dance.",
             },
             {
               tier: "Full Suite",
               price: "₱48,000",
               note: "One-time",
-              desc: "Everything + payments &amp; chat",
+              desc: "Everything &mdash; including the parent-facing experience",
               features: [
                 "Everything in Centre Plus",
-                "SaligPay payment integration",
-                "WhatsApp / Messenger chat widget",
-                "Google Reviews &amp; FB feed widgets",
-                "Automated email reminders",
+                "<strong>Parent portal</strong> &mdash; parents log in to view progress, milestones &amp; session notes",
+                "Automated session reminders (email + SMS)",
+                "Google Reviews widget on the website",
+                "Facebook feed widget on the website",
                 "Quarterly reviews for 6 months",
                 "Priority support &amp; small edits",
               ],
@@ -482,9 +491,19 @@ export default function ProposalHome() {
               <p className={`text-xs ${tier.featured ? "text-white/40" : "text-gray-300"}`}>
                 {tier.note}
               </p>
-              <p className={`text-sm font-medium mt-4 mb-5 ${tier.featured ? "text-white/80" : "text-[#1A1A2E]"}`}>
-                {tier.desc}
-              </p>
+              <p
+                className={`text-sm font-medium mt-4 mb-5 ${tier.featured ? "text-white/80" : "text-[#1A1A2E]"}`}
+                dangerouslySetInnerHTML={{ __html: tier.desc }}
+              />
+
+              {tier.highlight && (
+                <div className="mb-5 rounded-lg p-3 bg-[#C9A84C]/15 border border-[#C9A84C]/30">
+                  <p className="text-xs leading-relaxed text-[#C9A84C] font-medium italic">
+                    &ldquo;{tier.highlight}&rdquo;
+                  </p>
+                </div>
+              )}
+
               <ul className={`space-y-2.5 text-xs ${tier.featured ? "text-white/70" : "text-gray-500"}`}>
                 {tier.features.map((f, j) => (
                   <li key={j} className="flex items-start gap-2">
