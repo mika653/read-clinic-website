@@ -180,23 +180,24 @@ export default function AddOnsPage() {
               </div>
 
               <p className="text-sm text-gray-600 leading-relaxed">
-                An all-in-one Philippine payment platform that unifies GCash,
-                Maya, cards, online banking, QR Ph, and BillEase into a single
-                integration. Send payment links via Messenger or WhatsApp
-                &mdash; perfect for how Alabang parents already inquire and
-                pay.
+                A Philippine payment platform that unifies GCash, Maya, cards,
+                online banking, QR Ph, and BillEase into a single integration.
+                Send payment links via Messenger or WhatsApp &mdash; perfect
+                for how Alabang parents already inquire and pay. <strong className="text-[#1A1A2E]">Free
+                for the centre to use; parents pay a small convenience fee at
+                checkout.</strong>
               </p>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-2.5">
                 {[
+                  "Free signup &mdash; no monthly subscription",
                   "70+ local banks &amp; e-wallets in one integration",
                   "Recurring billing for monthly class packages",
                   "Send payment links via Messenger, IG, WhatsApp",
                   "Automated invoicing with payment reminders",
                   "PCI DSS compliant with fraud protection",
                   "Same-day or next-day payout settlement",
-                  "Works with custom websites &amp; Shopify",
-                  "Built-in CRM via Salig AI for clients",
+                  "Works with custom websites",
                 ].map((feature, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <span className="w-5 h-5 rounded-full bg-[#C9A84C]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -212,7 +213,13 @@ export default function AddOnsPage() {
 
               <div className="mt-6 pt-5 border-t border-gray-200">
                 <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-3">
-                  Transparent Per-Transaction Fees
+                  Convenience Fees Per Transaction
+                </p>
+                <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                  Parents see these as small fees added at checkout (similar
+                  to how they&apos;re used to paying when buying load or
+                  shopping online). The centre receives the full session
+                  amount.
                 </p>
                 <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-gray-600">
                   <span><strong className="text-[#1A1A2E]">2.0%</strong> Maya</span>
@@ -226,7 +233,8 @@ export default function AddOnsPage() {
                   <span><strong className="text-[#1A1A2E]">3.5% + ₱15</strong> Cards</span>
                 </div>
                 <p className="text-[10px] text-gray-400 mt-2">
-                  No monthly subscription. No setup costs. Pay only per transaction.
+                  No monthly fee. No setup cost from SaligPay. R.E.A.D. only
+                  pays our integration fee once.
                 </p>
               </div>
             </div>
@@ -239,10 +247,18 @@ export default function AddOnsPage() {
                 </p>
                 <ul className="space-y-4 text-sm text-gray-600 leading-relaxed">
                   <li>
+                    <strong className="text-[#1A1A2E] block mb-0.5">Free for the centre.</strong>
+                    <span className="text-xs text-gray-500">
+                      No monthly subscription. R.E.A.D. receives the full
+                      session price; parents pay a small convenience fee at
+                      checkout (already standard for online payments here).
+                    </span>
+                  </li>
+                  <li>
                     <strong className="text-[#1A1A2E] block mb-0.5">Parents pay via FB chat.</strong>
                     <span className="text-xs text-gray-500">
-                      Send a link in Messenger after the consultation &mdash; no
-                      need to leave the conversation.
+                      Send a link in Messenger after the consultation &mdash;
+                      no need to leave the conversation.
                     </span>
                   </li>
                   <li>
@@ -255,18 +271,21 @@ export default function AddOnsPage() {
                   <li>
                     <strong className="text-[#1A1A2E] block mb-0.5">No more deposit slips.</strong>
                     <span className="text-xs text-gray-500">
-                      Payments confirmed instantly, freeing up clinic admin time
-                      for what matters.
+                      Payments confirm instantly, freeing up secretary time for
+                      what matters.
                     </span>
                   </li>
                 </ul>
 
                 <div className="mt-6 pt-6 border-t border-gray-100">
-                  <p className="text-xs text-gray-400 mb-2">Setup investment</p>
+                  <p className="text-xs text-gray-400 mb-2">Integration setup</p>
                   <p className="text-3xl font-bold text-[#1A1A2E]" style={{ fontFamily: "'Playfair Display', serif" }}>
-                    ₱12,000
+                    ₱8,000
                   </p>
-                  <p className="text-xs text-gray-400">One-time integration fee + KYC</p>
+                  <p className="text-xs text-gray-400">
+                    One-time fee to wire SaligPay into the dashboard.
+                    SaligPay&apos;s own signup is free.
+                  </p>
                 </div>
               </div>
             </div>

@@ -339,8 +339,11 @@ export function PaymentSection({
               </div>
               <p className="text-sm text-gray-500 leading-relaxed">
                 One unified payment platform that lets parents pay through
-                Messenger links, the website, or even Facebook chat. Built
-                specifically for Philippine businesses like R.E.A.D. Center.
+                Messenger links, the website, or even Facebook chat.{" "}
+                <strong className="text-[#1A1A2E]">
+                  Free for the centre &mdash; parents pay a small convenience
+                  fee at checkout.
+                </strong>
               </p>
 
               {/* Feature list */}
@@ -350,11 +353,11 @@ export function PaymentSection({
                 }`}
               >
                 {[
-                  "Accepts GCash, Maya, cards, online banking, QR Ph, BillEase",
+                  "Free signup, no monthly subscription",
+                  "Accepts GCash, Maya, cards, online banking, QR Ph",
                   "Recurring billing for monthly class packages",
                   "Send payment links via Messenger or WhatsApp",
                   "Automated invoicing & payment reminders",
-                  "PCI DSS compliant with fraud protection",
                   "Same-day or next-day payout settlement",
                 ].map((feature, i) => (
                   <div key={i} className="flex items-start gap-2">
@@ -390,7 +393,7 @@ export function PaymentSection({
               {/* Fee transparency */}
               <div className="mt-5 pt-5 border-t border-gray-100">
                 <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                  Transparent Fees
+                  Convenience Fees (paid by parent at checkout)
                 </p>
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
                   <span>
@@ -410,7 +413,8 @@ export function PaymentSection({
                   </span>
                 </div>
                 <p className="text-[10px] text-gray-300 mt-2">
-                  No monthly fees. No setup costs.
+                  Centre pays nothing monthly. Parents see a small fee added
+                  at checkout (standard for online payments here).
                 </p>
               </div>
 
